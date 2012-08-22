@@ -13,7 +13,7 @@ class SSHcomms:
     self.host = host;
     self.port = port;
 
-  def connect(self)
+  def connect(self):
     self.transport = paramiko.Transport((self.host, self.port))
     self.transport.connect(username = self.username, password = self.password)
     self.channel = self.transport.open_channel('session')
