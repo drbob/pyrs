@@ -6,15 +6,23 @@
 
 import pyrs.comms
 import pyrs.rpc
+import pyrs.msgs
 import time
 
 # Message Definitions.
-from pyrs.proto import rspeers_pb2
+from pyrs.proto import core_pb2
+from pyrs.proto import peers_pb2
+from pyrs.proto import system_pb2
 
 username='user'
-password='putyourpasswordhere'
+password='yourpwdhere'
 host='127.0.0.1'
 port=7022  
+
+# Construct a Msg Parser.
+
+parser = pyrs.msgs.RpcMsgs();
+
 
 while(1):
 
@@ -27,31 +35,68 @@ while(1):
   rs = pyrs.rpc.RsRpc(comms); 
 
   # Create some requests....
-  #msgIds = RsMsgIds_rb2.new();
-
-  rp = rspeers_pb2.requestPeers();
-  rp.options = "Hello";
-
   # Send all your Requests first.
-  print "Sending Request:";
-  peer_req_id = rs.request(17, rp) #msgIds.REQUEST_PEERS, rp);
+  requests = [];
 
-  # wait for responses.
-  timeout = 0.5
+  rp = peers_pb2.RequestPeers();
+  rp.set = peers_pb2.RequestPeers.ALL;
+  rp.info = peers_pb2.RequestPeers.ALLINFO;
 
-  ans = rs.response(peer_req_id, timeout);
-  if not ans:
-    print "No Response!";
-    continue;
-  (msg_id, msg_body) = ans;
-  resp = rspeers_pb2.requestPeers();
-  resp.ParseFromString(msg_body);
+  msg_id = pyrs.msgs.constructMsgId(core_pb2.CORE, core_pb2.PEERS, peers_pb2.MsgId_RequestPeers, False);
+
+  print "Sending Request for Peers:";
+  req_id = rs.request(msg_id, rp)
+  requests.append(req_id);
+
+  # 
+  rp = peers_pb2.RequestAddPeer();
+  rp.gpg_id = "IdontKnow";
+  rp.cmd = peers_pb2.RequestAddPeer.EXAMINE;
+
+  msg_id = pyrs.msgs.constructMsgId(core_pb2.CORE, core_pb2.PEERS, peers_pb2.MsgId_RequestAddPeer, False);
+  print "Sending Request to AddPeer:";
+  req_id = rs.request(msg_id, rp)
+  requests.append(req_id);
+
+  # 
+  rp = peers_pb2.RequestModifyPeer();
+  rp.cmd = peers_pb2.RequestModifyPeer.DYNDNS;
+
+  msg_id = pyrs.msgs.constructMsgId(core_pb2.CORE, core_pb2.PEERS, peers_pb2.MsgId_RequestModifyPeer, False);
+  print "Sending Request ModifyPeer:";
+  req_id = rs.request(msg_id, rp)
+  requests.append(req_id);
 
 
-  print "Received Response: msg_id: %d" % (msg_id);
-  print resp;
+  # 
+  rp = system_pb2.RequestSystemStatus();
+  msg_id = pyrs.msgs.constructMsgId(core_pb2.CORE, core_pb2.SYSTEM, system_pb2.MsgId_RequestSystemStatus, False);
+  print "Sending Request for SystemStatus:";
+  req_id = rs.request(msg_id, rp)
+  requests.append(req_id);
 
 
+  # Now iterate through all the responses.
+  for peer_req_id in requests:
+
+    # wait for responses.
+    timeout = 0.5
+
+    ans = rs.response(peer_req_id, timeout);
+    if ans:
+      (msg_id, msg_body) = ans;
+      print "Received Response: msg_id: %d" % (msg_id);
+      resp = parser.construct(msg_id, msg_body);
+      if resp:
+        print "Parsed Msg:";
+        print resp;
+      else:
+        print "Unable to Parse Response";
+  
+    else:
+      print "No Response!";
+      continue;
+  
   comms.close();
   # wait for a bit, and retry.
   print "Sleeping:";
