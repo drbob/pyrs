@@ -28,10 +28,12 @@ class RsRpc(object):
     pass;
 
   def response(self, req_id, timeout):
-    print "RsRpc::response: req_id: %d, timeout: %f" % (req_id, timeout);
+    if __debug__: 
+        print "RsRpc::response: req_id: %d, timeout: %f" % (req_id, timeout);
     # special case - no timeout, non-blocking.
     if (not timeout): 
-      print "RsRpc::response: no timeout => get & return";
+      if __debug__: 
+        print "RsRpc::response: no timeout => get & return";
       self.fetch_responses();
       return response_stored(req_id);
 
@@ -39,7 +41,8 @@ class RsRpc(object):
     now = datetime.datetime.now();
     expiry_time = now + datetime.timedelta(seconds=timeout);
     while(now < expiry_time):
-      print "RsRpc::response: try fetch cycle...";
+      if __debug__: 
+        print "RsRpc::response: try fetch cycle...";
 
       # check for more data.
       self.fetch_responses();
@@ -51,25 +54,31 @@ class RsRpc(object):
       time.sleep(0.1);
       now = datetime.datetime.now();
 
-    print "RsRpc::response: timeout: No Response";
+    if __debug__: 
+        print "RsRpc::response: timeout: No Response";
     return None;
 
   def response_stored(self, req_id):
     if req_id in self.responses:
       ans = self.responses[req_id];
       del self.responses[req_id];
-      print "RsRpc::response_stored(%d) Found!" % (req_id);
+      if __debug__: 
+        print "RsRpc::response_stored(%d) Found!" % (req_id);
       return ans;
-    print "RsRpc::response_stored(%d) No received!" % (req_id);
+    if __debug__: 
+        print "RsRpc::response_stored(%d) No received!" % (req_id);
     return None;
 
   def fetch_responses(self):
-    print "RsRpc::fetch_responses()";
+    if __debug__: 
+        print "RsRpc::fetch_responses()";
     if self.comms.recv_ready():
-      print "RsRpc::fetch_responses() Data Ready";
+      if __debug__: 
+        print "RsRpc::fetch_responses() Data Ready";
       ans = self.msgpacker.read_msg();
       if not ans:
-        print "RsRpc::fetch_responses() Bad Answer";
+        if __debug__: 
+            print "RsRpc::fetch_responses() Bad Answer";
         return None;
 
       # put in responses map.
@@ -77,7 +86,8 @@ class RsRpc(object):
       req_id = ans[1];
       msg_body = ans[2];
 
-      print "RsRpc::fetch_responses() Storing Answer (%d, %d, len(%d))" % (msg_type, req_id, len(msg_body));
+      if __debug__: 
+        print "RsRpc::fetch_responses() Storing Answer (%d, %d, len(%d))" % (msg_type, req_id, len(msg_body));
 
       self.responses[req_id] = (msg_type, msg_body);
 
