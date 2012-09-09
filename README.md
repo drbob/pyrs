@@ -38,47 +38,28 @@ This library requires the following Python packages:
 
 ## Example Usage ##
 
-There are examples included with the code. Briefly:
+There are examples included with the code in the examples directory.
 
-    # Include dependancies.
-    import pyrs.comms
-    import pyrs.rpc
-    import time
+    1) Setup retroshare-nogui with sshserver enabled.
 
-    # Setup your Account.
-    username='user'
-    password='putyourpasswordhere'
-    host='127.0.0.1'
-    port=7022
+    2) Check out this repo
 
-    # create comms object.
-    comms = pyrs.comms.SSHcomms(username, password, host, port);
-    # comms = pyrs.comms.commsLoopback(); # An alternative loopback comms devices for local testing.
-    comms.connect();
+    > git clone https://github.com/drbob/pyrs.git pyrs
 
-    rs = pyrs.rpc.RsRpc(comms);
-  
-    # Create a Request.
-    rp = rspeers_pb2.requestPeers();
-    rp.options = "Hello";
-  
-    # Send all your Requests first.
-    print "Sending Request:";
-    peer_req_id = rs.request(17, rp) 
-  
-    # wait for responses.
-    timeout = 0.5
-  
-    ans = rs.response(peer_req_id, timeout);
-    if not ans:
-      print "No Response!";
-      exit 
+    2) copy examples base directory of pyrs packaage.
 
-    (msg_id, msg_body) = ans;
-    print "Received Response: msg_id: %d" % (msg_id);
+    > cd pyrs
+    > cp ./examples/* ./
 
-    resp = rspeers_pb2.requestPeers();
-    resp.ParseFromString(msg_body);
+    3) Create an auth.txt with your login details. eg.
+
+    pwd iverygoodandlongpassword
+    port 7022
+    user mylogin
+    host 127.0.0.1
+
+    4) run the tests
+
 
 Setting up the Retroshare side of things is still not trivial. It is described in the 
 build documents for retroshare-nogui.  

@@ -2,7 +2,8 @@
 
 # Basic Example to connect to rs-nogui.
 # You must edit this file with your username and password before running it.
-# 
+
+# This example repeatly logs in, sends commands, and closes connection.
 
 import pyrs.comms
 import pyrs.rpc
@@ -14,22 +15,27 @@ from pyrs.proto import core_pb2
 from pyrs.proto import peers_pb2
 from pyrs.proto import system_pb2
 
-username='user'
-password='yourpwdhere'
-host='127.0.0.1'
-port=7022  
+import pyrs.test.auth
+
+# This will load auth parameters from file 'auth.txt'
+# ONLY use for tests - make the user login properly.
+auth = pyrs.test.auth.Auth()
+
+## Alternatively - specify here.
+#auth.setUser('user');
+#auth.setHost('127.0.0.1');
+#auth.setPort(7022);
+#auth.setPwd('password');
 
 # Construct a Msg Parser.
-
 parser = pyrs.msgs.RpcMsgs();
-
 
 while(1):
 
   print "Starting new connect cycle";
 
   # create comms object.
-  comms = pyrs.comms.SSHcomms(username, password, host, port);
+  comms = pyrs.comms.SSHcomms(auth.user, auth.pwd, auth.host, auth.port)
   comms.connect();
   #comms = pyrs.comms.commsLoopback();
   rs = pyrs.rpc.RsRpc(comms); 
