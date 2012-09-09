@@ -17,12 +17,14 @@ class ProtoHolder(object):
     fn = None;
     if is_resp:
       if sub_msg_id not in self.RespFns:
-        print "ProtoHolder sub_msg not found in RespFns";
+        if __debug__: 
+            print "ProtoHolder sub_msg not found in RespFns";
         return None;
       fn = self.RespFns[sub_msg_id];
     else:
       if sub_msg_id not in self.ReqFns:
-        print "ProtoHolder sub_msg not found in ReqFns";
+        if __debug__: 
+            print "ProtoHolder sub_msg not found in ReqFns";
         return None;
       fn = self.ReqFns[sub_msg_id];
 
@@ -30,7 +32,8 @@ class ProtoHolder(object):
     try:
       obj.ParseFromString(data);
     except Exception, e:
-      print "ProtoHolder error parsing string. Exception: %s" % (e);
+      if __debug__: 
+          print "ProtoHolder error parsing string. Exception: %s" % (e);
       return None;
 
     return obj
@@ -138,21 +141,23 @@ class RpcMsgs(object):
     submsg_id = getRpcMsgIdSubMsg(msg_id);
     is_resp = isRpcMsgIdResponse(msg_id);
 
-    print "RpcMsgs::contruct() msg_id: (ext: %d, serv: %d, submsg: %d, is_resp: %d)" % (ext_id, service_id, submsg_id, is_resp);
+    if __debug__: 
+        print "RpcMsgs::contruct() msg_id: (ext: %d, serv: %d, submsg: %d, is_resp: %d)" % (ext_id, service_id, submsg_id, is_resp);
 
-    if not (ext_id == core_pb2.CORE):
-      print "RpcMsgs::contruct() Only Handled CORE msg Types";
-      return None;
-
-    if service_id not in self.ProtoDict:
-      print "RpcMsgs::contruct() Unknown service_id";
-      return None;
+        if not (ext_id == core_pb2.CORE):
+          print "RpcMsgs::contruct() Only Handled CORE msg Types";
+          return None;
+    
+        if service_id not in self.ProtoDict:
+          print "RpcMsgs::contruct() Unknown service_id";
+          return None;
 
     proto = self.ProtoDict[service_id];
 
     ans = proto.construct(is_resp, submsg_id, data);
-    if not ans:
-      print "RpcMsgs::contruct() ProtoHolder failed to Parse Msg";
+    if __debug__: 
+        if not ans:
+          print "RpcMsgs::contruct() ProtoHolder failed to Parse Msg";
 
     return ans;
 
