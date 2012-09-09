@@ -11,7 +11,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='core.proto',
   package='rsctrl.core',
-  serialized_pb='\n\ncore.proto\x12\x0brsctrl.core\"\x9b\x01\n\x06Status\x12,\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1e.rsctrl.core.Status.StatusCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"V\n\nStatusCode\x12\n\n\x06\x46\x41ILED\x10\x00\x12\x0f\n\x0bNO_IMPL_YET\x10\x01\x12\x11\n\rINVALID_QUERY\x10\x02\x12\x0b\n\x07SUCCESS\x10\x03\x12\x0b\n\x07READMSG\x10\x04\")\n\x06IpAddr\x12\x0e\n\x04\x61\x64\x64r\x18\x01 \x02(\t:\x00\x12\x0f\n\x04port\x18\x02 \x02(\r:\x01\x30\"\xc3\x01\n\x08Location\x12\x0e\n\x06ssl_id\x18\x01 \x02(\t\x12\x10\n\x08location\x18\x02 \x02(\t\x12&\n\tlocaladdr\x18\x03 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12$\n\x07\x65xtaddr\x18\x04 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12\r\n\x05state\x18\x05 \x02(\r\"8\n\nStateFlags\x12\n\n\x06ONLINE\x10\x01\x12\r\n\tCONNECTED\x10\x02\x12\x0f\n\x0bUNREACHABLE\x10\x04\"\xe0\x01\n\x06Person\x12\x0e\n\x06gpg_id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x32\n\x08relation\x18\x03 \x02(\x0e\x32 .rsctrl.core.Person.Relationship\x12(\n\tlocations\x18\x04 \x03(\x0b\x32\x15.rsctrl.core.Location\"Z\n\x0cRelationship\x12\n\n\x06\x46RIEND\x10\x01\x12\x1a\n\x16\x46RIEND_OF_MANY_FRIENDS\x10\x02\x12\x15\n\x11\x46RIEND_OF_FRIENDS\x10\x03\x12\x0b\n\x07UNKNOWN\x10\x04\"M\n\x04\x46ile\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04hash\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x03\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\r\n\x05\x61vail\x18\x05 \x01(\t\"f\n\x03\x44ir\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04path\x18\x02 \x02(\t\x12!\n\x07subdirs\x18\x03 \x03(\x0b\x32\x10.rsctrl.core.Dir\x12 \n\x05\x66iles\x18\x04 \x03(\x0b\x32\x11.rsctrl.core.File\"\xfa\x01\n\x0cSystemStatus\x12\x35\n\nnet_status\x18\x01 \x02(\x0e\x32!.rsctrl.core.SystemStatus.NetCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"3\n\tBandwidth\x12\n\n\x02up\x18\x01 \x02(\x02\x12\x0c\n\x04\x64own\x18\x02 \x02(\x02\x12\x0c\n\x04name\x18\x03 \x01(\t\":\n\x0c\x42\x61ndwidthSet\x12*\n\nbandwidths\x18\x01 \x03(\x0b\x32\x16.rsctrl.core.Bandwidth*\x17\n\x0b\x45xtensionId\x12\x08\n\x04\x43ORE\x10\x00*A\n\tPackageId\x12\t\n\x05PEERS\x10\x01\x12\n\n\x06SYSTEM\x10\x02\x12\t\n\x05\x46ILES\x10\x03\x12\x08\n\x04MSGS\x10\x04\x12\x08\n\x03GXS\x10\xe8\x07')
+  serialized_pb='\n\ncore.proto\x12\x0brsctrl.core\"\xb0\x01\n\x06Status\x12,\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1e.rsctrl.core.Status.StatusCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"k\n\nStatusCode\x12\n\n\x06\x46\x41ILED\x10\x00\x12\x0f\n\x0bNO_IMPL_YET\x10\x01\x12\x11\n\rINVALID_QUERY\x10\x02\x12\x13\n\x0fPARTIAL_SUCCESS\x10\x03\x12\x0b\n\x07SUCCESS\x10\x04\x12\x0b\n\x07READMSG\x10\x05\")\n\x06IpAddr\x12\x0e\n\x04\x61\x64\x64r\x18\x01 \x02(\t:\x00\x12\x0f\n\x04port\x18\x02 \x02(\r:\x01\x30\"\xc3\x01\n\x08Location\x12\x0e\n\x06ssl_id\x18\x01 \x02(\t\x12\x10\n\x08location\x18\x02 \x02(\t\x12&\n\tlocaladdr\x18\x03 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12$\n\x07\x65xtaddr\x18\x04 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12\r\n\x05state\x18\x05 \x02(\r\"8\n\nStateFlags\x12\n\n\x06ONLINE\x10\x01\x12\r\n\tCONNECTED\x10\x02\x12\x0f\n\x0bUNREACHABLE\x10\x04\"\xe0\x01\n\x06Person\x12\x0e\n\x06gpg_id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x32\n\x08relation\x18\x03 \x02(\x0e\x32 .rsctrl.core.Person.Relationship\x12(\n\tlocations\x18\x04 \x03(\x0b\x32\x15.rsctrl.core.Location\"Z\n\x0cRelationship\x12\n\n\x06\x46RIEND\x10\x01\x12\x1a\n\x16\x46RIEND_OF_MANY_FRIENDS\x10\x02\x12\x15\n\x11\x46RIEND_OF_FRIENDS\x10\x03\x12\x0b\n\x07UNKNOWN\x10\x04\"0\n\x04\x46ile\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04hash\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x04\"f\n\x03\x44ir\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04path\x18\x02 \x02(\t\x12!\n\x07subdirs\x18\x03 \x03(\x0b\x32\x10.rsctrl.core.Dir\x12 \n\x05\x66iles\x18\x04 \x03(\x0b\x32\x11.rsctrl.core.File\"\xfa\x01\n\x0cSystemStatus\x12\x35\n\nnet_status\x18\x01 \x02(\x0e\x32!.rsctrl.core.SystemStatus.NetCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"3\n\tBandwidth\x12\n\n\x02up\x18\x01 \x02(\x02\x12\x0c\n\x04\x64own\x18\x02 \x02(\x02\x12\x0c\n\x04name\x18\x03 \x01(\t\":\n\x0c\x42\x61ndwidthSet\x12*\n\nbandwidths\x18\x01 \x03(\x0b\x32\x16.rsctrl.core.Bandwidth*\x17\n\x0b\x45xtensionId\x12\x08\n\x04\x43ORE\x10\x00*M\n\tPackageId\x12\t\n\x05PEERS\x10\x01\x12\n\n\x06SYSTEM\x10\x02\x12\x08\n\x04\x43HAT\x10\x03\x12\n\n\x06SEARCH\x10\x04\x12\t\n\x05\x46ILES\x10\x05\x12\x08\n\x03GXS\x10\xe8\x07')
 
 _EXTENSIONID = descriptor.EnumDescriptor(
   name='ExtensionId',
@@ -26,8 +26,8 @@ _EXTENSIONID = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1202,
-  serialized_end=1225,
+  serialized_start=1194,
+  serialized_end=1217,
 )
 
 
@@ -46,30 +46,35 @@ _PACKAGEID = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='FILES', index=2, number=3,
+      name='CHAT', index=2, number=3,
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='MSGS', index=3, number=4,
+      name='SEARCH', index=3, number=4,
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='GXS', index=4, number=1000,
+      name='FILES', index=4, number=5,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='GXS', index=5, number=1000,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1227,
-  serialized_end=1292,
+  serialized_start=1219,
+  serialized_end=1296,
 )
 
 
 CORE = 0
 PEERS = 1
 SYSTEM = 2
-FILES = 3
-MSGS = 4
+CHAT = 3
+SEARCH = 4
+FILES = 5
 GXS = 1000
 
 
@@ -92,18 +97,22 @@ _STATUS_STATUSCODE = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='SUCCESS', index=3, number=3,
+      name='PARTIAL_SUCCESS', index=3, number=3,
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='READMSG', index=4, number=4,
+      name='SUCCESS', index=4, number=4,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='READMSG', index=5, number=5,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=97,
-  serialized_end=183,
+  serialized_end=204,
 )
 
 _LOCATION_STATEFLAGS = descriptor.EnumDescriptor(
@@ -127,8 +136,8 @@ _LOCATION_STATEFLAGS = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=368,
-  serialized_end=424,
+  serialized_start=389,
+  serialized_end=445,
 )
 
 _PERSON_RELATIONSHIP = descriptor.EnumDescriptor(
@@ -156,8 +165,8 @@ _PERSON_RELATIONSHIP = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=561,
-  serialized_end=651,
+  serialized_start=582,
+  serialized_end=672,
 )
 
 _SYSTEMSTATUS_NETCODE = descriptor.EnumDescriptor(
@@ -205,8 +214,8 @@ _SYSTEMSTATUS_NETCODE = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=922,
-  serialized_end=1087,
+  serialized_start=914,
+  serialized_end=1079,
 )
 
 
@@ -242,7 +251,7 @@ _STATUS = descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=28,
-  serialized_end=183,
+  serialized_end=204,
 )
 
 
@@ -276,8 +285,8 @@ _IPADDR = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=185,
-  serialized_end=226,
+  serialized_start=206,
+  serialized_end=247,
 )
 
 
@@ -333,8 +342,8 @@ _LOCATION = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=229,
-  serialized_end=424,
+  serialized_start=250,
+  serialized_end=445,
 )
 
 
@@ -383,8 +392,8 @@ _PERSON = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=427,
-  serialized_end=651,
+  serialized_start=448,
+  serialized_end=672,
 )
 
 
@@ -411,22 +420,8 @@ _FILE = descriptor.Descriptor(
       options=None),
     descriptor.FieldDescriptor(
       name='size', full_name='rsctrl.core.File.size', index=2,
-      number=3, type=3, cpp_type=2, label=2,
+      number=3, type=4, cpp_type=4, label=2,
       has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    descriptor.FieldDescriptor(
-      name='path', full_name='rsctrl.core.File.path', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    descriptor.FieldDescriptor(
-      name='avail', full_name='rsctrl.core.File.avail', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -439,8 +434,8 @@ _FILE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=653,
-  serialized_end=730,
+  serialized_start=674,
+  serialized_end=722,
 )
 
 
@@ -488,8 +483,8 @@ _DIR = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=732,
-  serialized_end=834,
+  serialized_start=724,
+  serialized_end=826,
 )
 
 
@@ -524,8 +519,8 @@ _SYSTEMSTATUS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=837,
-  serialized_end=1087,
+  serialized_start=829,
+  serialized_end=1079,
 )
 
 
@@ -566,8 +561,8 @@ _BANDWIDTH = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1089,
-  serialized_end=1140,
+  serialized_start=1081,
+  serialized_end=1132,
 )
 
 
@@ -594,8 +589,8 @@ _BANDWIDTHSET = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1142,
-  serialized_end=1200,
+  serialized_start=1134,
+  serialized_end=1192,
 )
 
 _STATUS.fields_by_name['code'].enum_type = _STATUS_STATUSCODE

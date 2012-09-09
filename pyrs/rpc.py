@@ -56,11 +56,18 @@ class RsRpc(object):
 
   def response_stored(self, req_id):
     if req_id in self.responses:
-      ans = self.responses[req_id];
-      del self.responses[req_id];
+      ans = self.responses[req_id].pop(0);
+      if (len(self.responses[req_id]) == 0):
+        del self.responses[req_id];
       print "RsRpc::response_stored(%d) Found!" % (req_id);
       return ans;
     print "RsRpc::response_stored(%d) No received!" % (req_id);
+    return None;
+
+  def first_response(self):
+    for req_id, response_list in self.responses.items():
+      (msg_id, msg_body) = self.response_stored(req_id);
+      return (req_id, msg_id, msg_body);
     return None;
 
   def fetch_responses(self):
@@ -79,7 +86,9 @@ class RsRpc(object):
 
       print "RsRpc::fetch_responses() Storing Answer (%d, %d, len(%d))" % (msg_type, req_id, len(msg_body));
 
-      self.responses[req_id] = (msg_type, msg_body);
+      if req_id not in self.responses:
+        self.responses[req_id] = [];
+      self.responses[req_id].append( (msg_type, msg_body) );
 
   def clear(self):
     self.responses = {};
