@@ -12,7 +12,7 @@ import core_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='search.proto',
   package='rsctrl.search',
-  serialized_pb='\n\x0csearch.proto\x12\rrsctrl.search\x1a\ncore.proto\"y\n\tSearchHit\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12\x0b\n\x03loc\x18\x02 \x02(\r\x12\x0f\n\x07no_hits\x18\x03 \x02(\r\"-\n\x07LocFlag\x12\t\n\x05LOCAL\x10\x01\x12\n\n\x06\x46RIEND\x10\x02\x12\x0b\n\x07NETWORK\x10\x04\"F\n\tSearchSet\x12\x11\n\tsearch_id\x18\x01 \x02(\r\x12&\n\x04hits\x18\x02 \x03(\x0b\x32\x18.rsctrl.search.SearchHit\"#\n\x12RequestBasicSearch\x12\r\n\x05terms\x18\x01 \x03(\t\"!\n\x10RequestAdvSearch\x12\r\n\x05terms\x18\x01 \x03(\t\"K\n\x11ResponseSearchIds\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x11\n\tsearch_id\x18\x02 \x03(\r\"\'\n\x12RequestCloseSearch\x12\x11\n\tsearch_id\x18\x01 \x02(\r\"\x15\n\x13RequestListSearches\"*\n\x14RequestSearchResults\x12\x12\n\nsearch_ids\x18\x02 \x03(\r\"h\n\x15ResponseSearchResults\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12*\n\x08searches\x18\x02 \x03(\x0b\x32\x18.rsctrl.search.SearchSet*\x8a\x01\n\rRequestMsgIds\x12\x1c\n\x18MsgId_RequestBasicSearch\x10\x01\x12\x1c\n\x18MsgId_RequestCloseSearch\x10\x03\x12\x1d\n\x19MsgId_RequestListSearches\x10\x04\x12\x1e\n\x1aMsgId_RequestSearchResults\x10\x05*N\n\x0eResponseMsgIds\x12\x1b\n\x17MsgId_ResponseSearchIds\x10\x01\x12\x1f\n\x1bMsgId_ResponseSearchResults\x10\x05')
+  serialized_pb='\n\x0csearch.proto\x12\rrsctrl.search\x1a\ncore.proto\"\x8c\x01\n\tSearchHit\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12\x0b\n\x03loc\x18\x02 \x02(\r\x12\x0f\n\x07no_hits\x18\x03 \x02(\r\x12\x11\n\talt_names\x18\x04 \x03(\t\"-\n\x07LocFlag\x12\t\n\x05LOCAL\x10\x01\x12\n\n\x06\x46RIEND\x10\x02\x12\x0b\n\x07NETWORK\x10\x04\"F\n\tSearchSet\x12\x11\n\tsearch_id\x18\x01 \x02(\r\x12&\n\x04hits\x18\x02 \x03(\x0b\x32\x18.rsctrl.search.SearchHit\"#\n\x12RequestBasicSearch\x12\r\n\x05terms\x18\x01 \x03(\t\"!\n\x10RequestAdvSearch\x12\r\n\x05terms\x18\x01 \x03(\t\"K\n\x11ResponseSearchIds\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x11\n\tsearch_id\x18\x02 \x03(\r\"\'\n\x12RequestCloseSearch\x12\x11\n\tsearch_id\x18\x01 \x02(\r\"\x15\n\x13RequestListSearches\"@\n\x14RequestSearchResults\x12\x14\n\x0cresult_limit\x18\x01 \x01(\r\x12\x12\n\nsearch_ids\x18\x02 \x03(\r\"h\n\x15ResponseSearchResults\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12*\n\x08searches\x18\x02 \x03(\x0b\x32\x18.rsctrl.search.SearchSet*\x8a\x01\n\rRequestMsgIds\x12\x1c\n\x18MsgId_RequestBasicSearch\x10\x01\x12\x1c\n\x18MsgId_RequestCloseSearch\x10\x03\x12\x1d\n\x19MsgId_RequestListSearches\x10\x04\x12\x1e\n\x1aMsgId_RequestSearchResults\x10\x05*N\n\x0eResponseMsgIds\x12\x1b\n\x17MsgId_ResponseSearchIds\x10\x01\x12\x1f\n\x1bMsgId_ResponseSearchResults\x10\x05')
 
 _REQUESTMSGIDS = descriptor.EnumDescriptor(
   name='RequestMsgIds',
@@ -39,8 +39,8 @@ _REQUESTMSGIDS = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=602,
-  serialized_end=740,
+  serialized_start=644,
+  serialized_end=782,
 )
 
 
@@ -61,8 +61,8 @@ _RESPONSEMSGIDS = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=742,
-  serialized_end=820,
+  serialized_start=784,
+  serialized_end=862,
 )
 
 
@@ -95,8 +95,8 @@ _SEARCHHIT_LOCFLAG = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=119,
-  serialized_end=164,
+  serialized_start=139,
+  serialized_end=184,
 )
 
 
@@ -128,6 +128,13 @@ _SEARCHHIT = descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    descriptor.FieldDescriptor(
+      name='alt_names', full_name='rsctrl.search.SearchHit.alt_names', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -138,8 +145,8 @@ _SEARCHHIT = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=43,
-  serialized_end=164,
+  serialized_start=44,
+  serialized_end=184,
 )
 
 
@@ -173,8 +180,8 @@ _SEARCHSET = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=166,
-  serialized_end=236,
+  serialized_start=186,
+  serialized_end=256,
 )
 
 
@@ -201,8 +208,8 @@ _REQUESTBASICSEARCH = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=238,
-  serialized_end=273,
+  serialized_start=258,
+  serialized_end=293,
 )
 
 
@@ -229,8 +236,8 @@ _REQUESTADVSEARCH = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=275,
-  serialized_end=308,
+  serialized_start=295,
+  serialized_end=328,
 )
 
 
@@ -264,8 +271,8 @@ _RESPONSESEARCHIDS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=310,
-  serialized_end=385,
+  serialized_start=330,
+  serialized_end=405,
 )
 
 
@@ -292,8 +299,8 @@ _REQUESTCLOSESEARCH = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=387,
-  serialized_end=426,
+  serialized_start=407,
+  serialized_end=446,
 )
 
 
@@ -313,8 +320,8 @@ _REQUESTLISTSEARCHES = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=428,
-  serialized_end=449,
+  serialized_start=448,
+  serialized_end=469,
 )
 
 
@@ -326,7 +333,14 @@ _REQUESTSEARCHRESULTS = descriptor.Descriptor(
   containing_type=None,
   fields=[
     descriptor.FieldDescriptor(
-      name='search_ids', full_name='rsctrl.search.RequestSearchResults.search_ids', index=0,
+      name='result_limit', full_name='rsctrl.search.RequestSearchResults.result_limit', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='search_ids', full_name='rsctrl.search.RequestSearchResults.search_ids', index=1,
       number=2, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -341,8 +355,8 @@ _REQUESTSEARCHRESULTS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=451,
-  serialized_end=493,
+  serialized_start=471,
+  serialized_end=535,
 )
 
 
@@ -376,8 +390,8 @@ _RESPONSESEARCHRESULTS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=495,
-  serialized_end=599,
+  serialized_start=537,
+  serialized_end=641,
 )
 
 _SEARCHHIT.fields_by_name['file'].message_type = core_pb2._FILE

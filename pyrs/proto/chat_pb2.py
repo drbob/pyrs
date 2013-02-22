@@ -12,7 +12,7 @@ import core_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='chat.proto',
   package='rsctrl.chat',
-  serialized_pb='\n\nchat.proto\x12\x0brsctrl.chat\x1a\ncore.proto\"\x9e\x03\n\rChatLobbyInfo\x12\x10\n\x08lobby_id\x18\x01 \x02(\t\x12\x13\n\x0blobby_topic\x18\x02 \x02(\t\x12\x12\n\nlobby_name\x18\x03 \x02(\t\x12\x16\n\x0elobby_nickname\x18\x04 \x02(\t\x12\x35\n\rprivacy_level\x18\x05 \x02(\x0e\x32\x1e.rsctrl.chat.LobbyPrivacyLevel\x12:\n\x0blobby_state\x18\x06 \x02(\x0e\x32%.rsctrl.chat.ChatLobbyInfo.LobbyState\x12\x10\n\x08no_peers\x18\x07 \x02(\r\x12\x18\n\x10last_report_time\x18\x08 \x02(\r\x12\x15\n\rlast_activity\x18\t \x02(\r\x12\x1d\n\x15participating_friends\x18\n \x03(\t\x12\x11\n\tnicknames\x18\x0b \x03(\t\"R\n\nLobbyState\x12\x15\n\x11LOBBYSTATE_JOINED\x10\x01\x12\x16\n\x12LOBBYSTATE_INVITED\x10\x02\x12\x15\n\x11LOBBYSTATE_PUBLIC\x10\x03\"C\n\x06\x43hatId\x12(\n\tchat_type\x18\x01 \x02(\x0e\x32\x15.rsctrl.chat.ChatType\x12\x0f\n\x07\x63hat_id\x18\x02 \x02(\t\"\x8c\x01\n\x0b\x43hatMessage\x12\x1f\n\x02id\x18\x01 \x02(\x0b\x32\x13.rsctrl.chat.ChatId\x12\x0b\n\x03msg\x18\x02 \x02(\t\x12\x15\n\rpeer_nickname\x18\x03 \x01(\t\x12\x12\n\nchat_flags\x18\x04 \x01(\r\x12\x11\n\tsend_time\x18\x05 \x01(\r\x12\x11\n\trecv_time\x18\x06 \x01(\r\"g\n\x13ResponseChatLobbies\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12+\n\x07lobbies\x18\x02 \x03(\x0b\x32\x1a.rsctrl.chat.ChatLobbyInfo\"\xaf\x01\n\x12RequestChatLobbies\x12;\n\tlobby_set\x18\x01 \x02(\x0e\x32(.rsctrl.chat.RequestChatLobbies.LobbySet\"\\\n\x08LobbySet\x12\x10\n\x0cLOBBYSET_ALL\x10\x01\x12\x13\n\x0fLOBBYSET_JOINED\x10\x02\x12\x14\n\x10LOBBYSET_INVITED\x10\x03\x12\x13\n\x0fLOBBYSET_PUBLIC\x10\x04\"\x8d\x01\n\x12RequestCreateLobby\x12\x12\n\nlobby_name\x18\x01 \x02(\t\x12\x13\n\x0blobby_topic\x18\x02 \x02(\t\x12\x35\n\rprivacy_level\x18\x04 \x02(\x0e\x32\x1e.rsctrl.chat.LobbyPrivacyLevel\x12\x17\n\x0finvited_friends\x18\x03 \x03(\t\"\xa3\x01\n\x17RequestJoinOrLeaveLobby\x12\x10\n\x08lobby_id\x18\x01 \x02(\t\x12@\n\x06\x61\x63tion\x18\x02 \x02(\x0e\x32\x30.rsctrl.chat.RequestJoinOrLeaveLobby.LobbyAction\"4\n\x0bLobbyAction\x12\x12\n\x0eJOIN_OR_ACCEPT\x10\x01\x12\x11\n\rLEAVE_OR_DENY\x10\x02\">\n\x17RequestSetLobbyNickname\x12\x10\n\x08nickname\x18\x01 \x02(\t\x12\x11\n\tlobby_ids\x18\x02 \x03(\t\"?\n\x18ResponseSetLobbyNickname\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"\x8a\x01\n\x15RequestRegisterEvents\x12\x41\n\x06\x61\x63tion\x18\x01 \x02(\x0e\x32\x31.rsctrl.chat.RequestRegisterEvents.RegisterAction\".\n\x0eRegisterAction\x12\x0c\n\x08REGISTER\x10\x01\x12\x0e\n\nDEREGISTER\x10\x02\"=\n\x16ResponseRegisterEvents\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"=\n\x10\x45ventLobbyInvite\x12)\n\x05lobby\x18\x01 \x02(\x0b\x32\x1a.rsctrl.chat.ChatLobbyInfo\"9\n\x10\x45ventChatMessage\x12%\n\x03msg\x18\x01 \x02(\x0b\x32\x18.rsctrl.chat.ChatMessage\";\n\x12RequestSendMessage\x12%\n\x03msg\x18\x01 \x02(\x0b\x32\x18.rsctrl.chat.ChatMessage\":\n\x13ResponseSendMessage\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status*\xd0\x01\n\rRequestMsgIds\x12\x1c\n\x18MsgId_RequestChatLobbies\x10\x01\x12\x1c\n\x18MsgId_RequestCreateLobby\x10\x02\x12!\n\x1dMsgId_RequestJoinOrLeaveLobby\x10\x03\x12!\n\x1dMsgId_RequestSetLobbyNickname\x10\x04\x12\x1f\n\x1bMsgId_RequestRegisterEvents\x10\x05\x12\x1c\n\x18MsgId_RequestSendMessage\x10\x06*\xcc\x01\n\x0eResponseMsgIds\x12\x1d\n\x19MsgId_ResponseChatLobbies\x10\x01\x12\"\n\x1eMsgId_ResponseSetLobbyNickname\x10\x04\x12 \n\x1cMsgId_ResponseRegisterEvents\x10\x05\x12\x1d\n\x19MsgId_ResponseSendMessage\x10\x06\x12\x1a\n\x16MsgId_EventLobbyInvite\x10\x65\x12\x1a\n\x16MsgId_EventChatMessage\x10\x66*<\n\x11LobbyPrivacyLevel\x12\x13\n\x0fPRIVACY_PRIVATE\x10\x01\x12\x12\n\x0ePRIVACY_PUBLIC\x10\x02*<\n\x08\x43hatType\x12\x10\n\x0cTYPE_PRIVATE\x10\x01\x12\x0e\n\nTYPE_LOBBY\x10\x02\x12\x0e\n\nTYPE_GROUP\x10\x03')
+  serialized_pb='\n\nchat.proto\x12\x0brsctrl.chat\x1a\ncore.proto\"\x9f\x03\n\rChatLobbyInfo\x12\x10\n\x08lobby_id\x18\x01 \x02(\t\x12\x13\n\x0blobby_topic\x18\x02 \x02(\t\x12\x12\n\nlobby_name\x18\x03 \x02(\t\x12\x16\n\x0elobby_nickname\x18\x04 \x02(\t\x12\x35\n\rprivacy_level\x18\x05 \x02(\x0e\x32\x1e.rsctrl.chat.LobbyPrivacyLevel\x12:\n\x0blobby_state\x18\x06 \x02(\x0e\x32%.rsctrl.chat.ChatLobbyInfo.LobbyState\x12\x10\n\x08no_peers\x18\x07 \x02(\r\x12\x18\n\x10last_report_time\x18\x08 \x02(\r\x12\x15\n\rlast_activity\x18\t \x02(\r\x12\x1d\n\x15participating_friends\x18\n \x03(\t\x12\x11\n\tnicknames\x18\x0b \x03(\t\"S\n\nLobbyState\x12\x15\n\x11LOBBYSTATE_JOINED\x10\x01\x12\x16\n\x12LOBBYSTATE_INVITED\x10\x02\x12\x16\n\x12LOBBYSTATE_VISIBLE\x10\x03\"C\n\x06\x43hatId\x12(\n\tchat_type\x18\x01 \x02(\x0e\x32\x15.rsctrl.chat.ChatType\x12\x0f\n\x07\x63hat_id\x18\x02 \x02(\t\"\x8c\x01\n\x0b\x43hatMessage\x12\x1f\n\x02id\x18\x01 \x02(\x0b\x32\x13.rsctrl.chat.ChatId\x12\x0b\n\x03msg\x18\x02 \x02(\t\x12\x15\n\rpeer_nickname\x18\x03 \x01(\t\x12\x12\n\nchat_flags\x18\x04 \x01(\r\x12\x11\n\tsend_time\x18\x05 \x01(\r\x12\x11\n\trecv_time\x18\x06 \x01(\r\"g\n\x13ResponseChatLobbies\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12+\n\x07lobbies\x18\x02 \x03(\x0b\x32\x1a.rsctrl.chat.ChatLobbyInfo\"\xb0\x01\n\x12RequestChatLobbies\x12;\n\tlobby_set\x18\x01 \x02(\x0e\x32(.rsctrl.chat.RequestChatLobbies.LobbySet\"]\n\x08LobbySet\x12\x10\n\x0cLOBBYSET_ALL\x10\x01\x12\x13\n\x0fLOBBYSET_JOINED\x10\x02\x12\x14\n\x10LOBBYSET_INVITED\x10\x03\x12\x14\n\x10LOBBYSET_VISIBLE\x10\x04\"\x8d\x01\n\x12RequestCreateLobby\x12\x12\n\nlobby_name\x18\x01 \x02(\t\x12\x13\n\x0blobby_topic\x18\x02 \x02(\t\x12\x35\n\rprivacy_level\x18\x04 \x02(\x0e\x32\x1e.rsctrl.chat.LobbyPrivacyLevel\x12\x17\n\x0finvited_friends\x18\x03 \x03(\t\"\xa3\x01\n\x17RequestJoinOrLeaveLobby\x12\x10\n\x08lobby_id\x18\x01 \x02(\t\x12@\n\x06\x61\x63tion\x18\x02 \x02(\x0e\x32\x30.rsctrl.chat.RequestJoinOrLeaveLobby.LobbyAction\"4\n\x0bLobbyAction\x12\x12\n\x0eJOIN_OR_ACCEPT\x10\x01\x12\x11\n\rLEAVE_OR_DENY\x10\x02\">\n\x17RequestSetLobbyNickname\x12\x10\n\x08nickname\x18\x01 \x02(\t\x12\x11\n\tlobby_ids\x18\x02 \x03(\t\"?\n\x18ResponseSetLobbyNickname\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"\x8a\x01\n\x15RequestRegisterEvents\x12\x41\n\x06\x61\x63tion\x18\x01 \x02(\x0e\x32\x31.rsctrl.chat.RequestRegisterEvents.RegisterAction\".\n\x0eRegisterAction\x12\x0c\n\x08REGISTER\x10\x01\x12\x0e\n\nDEREGISTER\x10\x02\"=\n\x16ResponseRegisterEvents\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"=\n\x10\x45ventLobbyInvite\x12)\n\x05lobby\x18\x01 \x02(\x0b\x32\x1a.rsctrl.chat.ChatLobbyInfo\"9\n\x10\x45ventChatMessage\x12%\n\x03msg\x18\x01 \x02(\x0b\x32\x18.rsctrl.chat.ChatMessage\";\n\x12RequestSendMessage\x12%\n\x03msg\x18\x01 \x02(\x0b\x32\x18.rsctrl.chat.ChatMessage\":\n\x13ResponseSendMessage\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"5\n\x12RequestChatHistory\x12\x1f\n\x02id\x18\x01 \x02(\x0b\x32\x13.rsctrl.chat.ChatId\"\x83\x01\n\x13ResponseChatHistory\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x1f\n\x02id\x18\x02 \x02(\x0b\x32\x13.rsctrl.chat.ChatId\x12&\n\x04msgs\x18\x03 \x03(\x0b\x32\x18.rsctrl.chat.ChatMessage*\xee\x01\n\rRequestMsgIds\x12\x1c\n\x18MsgId_RequestChatLobbies\x10\x01\x12\x1c\n\x18MsgId_RequestCreateLobby\x10\x02\x12!\n\x1dMsgId_RequestJoinOrLeaveLobby\x10\x03\x12!\n\x1dMsgId_RequestSetLobbyNickname\x10\x04\x12\x1f\n\x1bMsgId_RequestRegisterEvents\x10\x05\x12\x1c\n\x18MsgId_RequestSendMessage\x10\x06\x12\x1c\n\x18MsgId_RequestChatHistory\x10\x07*\xeb\x01\n\x0eResponseMsgIds\x12\x1d\n\x19MsgId_ResponseChatLobbies\x10\x01\x12\"\n\x1eMsgId_ResponseSetLobbyNickname\x10\x04\x12 \n\x1cMsgId_ResponseRegisterEvents\x10\x05\x12\x1d\n\x19MsgId_ResponseSendMessage\x10\x06\x12\x1d\n\x19MsgId_ResponseChatHistory\x10\x07\x12\x1a\n\x16MsgId_EventLobbyInvite\x10\x65\x12\x1a\n\x16MsgId_EventChatMessage\x10\x66*<\n\x11LobbyPrivacyLevel\x12\x13\n\x0fPRIVACY_PRIVATE\x10\x01\x12\x12\n\x0ePRIVACY_PUBLIC\x10\x02*<\n\x08\x43hatType\x12\x10\n\x0cTYPE_PRIVATE\x10\x01\x12\x0e\n\nTYPE_LOBBY\x10\x02\x12\x0e\n\nTYPE_GROUP\x10\x03')
 
 _REQUESTMSGIDS = descriptor.EnumDescriptor(
   name='RequestMsgIds',
@@ -44,11 +44,15 @@ _REQUESTMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_RequestSendMessage', index=5, number=6,
       options=None,
       type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_RequestChatHistory', index=6, number=7,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1838,
-  serialized_end=2046,
+  serialized_start=2029,
+  serialized_end=2267,
 )
 
 
@@ -75,18 +79,22 @@ _RESPONSEMSGIDS = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='MsgId_EventLobbyInvite', index=4, number=101,
+      name='MsgId_ResponseChatHistory', index=4, number=7,
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='MsgId_EventChatMessage', index=5, number=102,
+      name='MsgId_EventLobbyInvite', index=5, number=101,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_EventChatMessage', index=6, number=102,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=2049,
-  serialized_end=2253,
+  serialized_start=2270,
+  serialized_end=2505,
 )
 
 
@@ -107,8 +115,8 @@ _LOBBYPRIVACYLEVEL = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2255,
-  serialized_end=2315,
+  serialized_start=2507,
+  serialized_end=2567,
 )
 
 
@@ -133,8 +141,8 @@ _CHATTYPE = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2317,
-  serialized_end=2377,
+  serialized_start=2569,
+  serialized_end=2629,
 )
 
 
@@ -144,10 +152,12 @@ MsgId_RequestJoinOrLeaveLobby = 3
 MsgId_RequestSetLobbyNickname = 4
 MsgId_RequestRegisterEvents = 5
 MsgId_RequestSendMessage = 6
+MsgId_RequestChatHistory = 7
 MsgId_ResponseChatLobbies = 1
 MsgId_ResponseSetLobbyNickname = 4
 MsgId_ResponseRegisterEvents = 5
 MsgId_ResponseSendMessage = 6
+MsgId_ResponseChatHistory = 7
 MsgId_EventLobbyInvite = 101
 MsgId_EventChatMessage = 102
 PRIVACY_PRIVATE = 1
@@ -172,14 +182,14 @@ _CHATLOBBYINFO_LOBBYSTATE = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='LOBBYSTATE_PUBLIC', index=2, number=3,
+      name='LOBBYSTATE_VISIBLE', index=2, number=3,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=372,
-  serialized_end=454,
+  serialized_end=455,
 )
 
 _REQUESTCHATLOBBIES_LOBBYSET = descriptor.EnumDescriptor(
@@ -201,14 +211,14 @@ _REQUESTCHATLOBBIES_LOBBYSET = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='LOBBYSET_PUBLIC', index=3, number=4,
+      name='LOBBYSET_VISIBLE', index=3, number=4,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=857,
-  serialized_end=949,
+  serialized_start=858,
+  serialized_end=951,
 )
 
 _REQUESTJOINORLEAVELOBBY_LOBBYACTION = descriptor.EnumDescriptor(
@@ -228,8 +238,8 @@ _REQUESTJOINORLEAVELOBBY_LOBBYACTION = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1207,
-  serialized_end=1259,
+  serialized_start=1209,
+  serialized_end=1261,
 )
 
 _REQUESTREGISTEREVENTS_REGISTERACTION = descriptor.EnumDescriptor(
@@ -249,8 +259,8 @@ _REQUESTREGISTEREVENTS_REGISTERACTION = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1483,
-  serialized_end=1529,
+  serialized_start=1485,
+  serialized_end=1531,
 )
 
 
@@ -349,7 +359,7 @@ _CHATLOBBYINFO = descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=40,
-  serialized_end=454,
+  serialized_end=455,
 )
 
 
@@ -383,8 +393,8 @@ _CHATID = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=456,
-  serialized_end=523,
+  serialized_start=457,
+  serialized_end=524,
 )
 
 
@@ -446,8 +456,8 @@ _CHATMESSAGE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=526,
-  serialized_end=666,
+  serialized_start=527,
+  serialized_end=667,
 )
 
 
@@ -481,8 +491,8 @@ _RESPONSECHATLOBBIES = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=668,
-  serialized_end=771,
+  serialized_start=669,
+  serialized_end=772,
 )
 
 
@@ -510,8 +520,8 @@ _REQUESTCHATLOBBIES = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=774,
-  serialized_end=949,
+  serialized_start=775,
+  serialized_end=951,
 )
 
 
@@ -559,8 +569,8 @@ _REQUESTCREATELOBBY = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=952,
-  serialized_end=1093,
+  serialized_start=954,
+  serialized_end=1095,
 )
 
 
@@ -595,8 +605,8 @@ _REQUESTJOINORLEAVELOBBY = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1096,
-  serialized_end=1259,
+  serialized_start=1098,
+  serialized_end=1261,
 )
 
 
@@ -630,8 +640,8 @@ _REQUESTSETLOBBYNICKNAME = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1261,
-  serialized_end=1323,
+  serialized_start=1263,
+  serialized_end=1325,
 )
 
 
@@ -658,8 +668,8 @@ _RESPONSESETLOBBYNICKNAME = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1325,
-  serialized_end=1388,
+  serialized_start=1327,
+  serialized_end=1390,
 )
 
 
@@ -687,8 +697,8 @@ _REQUESTREGISTEREVENTS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1391,
-  serialized_end=1529,
+  serialized_start=1393,
+  serialized_end=1531,
 )
 
 
@@ -715,8 +725,8 @@ _RESPONSEREGISTEREVENTS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1531,
-  serialized_end=1592,
+  serialized_start=1533,
+  serialized_end=1594,
 )
 
 
@@ -743,8 +753,8 @@ _EVENTLOBBYINVITE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1594,
-  serialized_end=1655,
+  serialized_start=1596,
+  serialized_end=1657,
 )
 
 
@@ -771,8 +781,8 @@ _EVENTCHATMESSAGE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1657,
-  serialized_end=1714,
+  serialized_start=1659,
+  serialized_end=1716,
 )
 
 
@@ -799,8 +809,8 @@ _REQUESTSENDMESSAGE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1716,
-  serialized_end=1775,
+  serialized_start=1718,
+  serialized_end=1777,
 )
 
 
@@ -827,8 +837,78 @@ _RESPONSESENDMESSAGE = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1777,
-  serialized_end=1835,
+  serialized_start=1779,
+  serialized_end=1837,
+)
+
+
+_REQUESTCHATHISTORY = descriptor.Descriptor(
+  name='RequestChatHistory',
+  full_name='rsctrl.chat.RequestChatHistory',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='id', full_name='rsctrl.chat.RequestChatHistory.id', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=1839,
+  serialized_end=1892,
+)
+
+
+_RESPONSECHATHISTORY = descriptor.Descriptor(
+  name='ResponseChatHistory',
+  full_name='rsctrl.chat.ResponseChatHistory',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='status', full_name='rsctrl.chat.ResponseChatHistory.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='id', full_name='rsctrl.chat.ResponseChatHistory.id', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='msgs', full_name='rsctrl.chat.ResponseChatHistory.msgs', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=1895,
+  serialized_end=2026,
 )
 
 _CHATLOBBYINFO.fields_by_name['privacy_level'].enum_type = _LOBBYPRIVACYLEVEL
@@ -851,6 +931,10 @@ _EVENTLOBBYINVITE.fields_by_name['lobby'].message_type = _CHATLOBBYINFO
 _EVENTCHATMESSAGE.fields_by_name['msg'].message_type = _CHATMESSAGE
 _REQUESTSENDMESSAGE.fields_by_name['msg'].message_type = _CHATMESSAGE
 _RESPONSESENDMESSAGE.fields_by_name['status'].message_type = core_pb2._STATUS
+_REQUESTCHATHISTORY.fields_by_name['id'].message_type = _CHATID
+_RESPONSECHATHISTORY.fields_by_name['status'].message_type = core_pb2._STATUS
+_RESPONSECHATHISTORY.fields_by_name['id'].message_type = _CHATID
+_RESPONSECHATHISTORY.fields_by_name['msgs'].message_type = _CHATMESSAGE
 DESCRIPTOR.message_types_by_name['ChatLobbyInfo'] = _CHATLOBBYINFO
 DESCRIPTOR.message_types_by_name['ChatId'] = _CHATID
 DESCRIPTOR.message_types_by_name['ChatMessage'] = _CHATMESSAGE
@@ -866,6 +950,8 @@ DESCRIPTOR.message_types_by_name['EventLobbyInvite'] = _EVENTLOBBYINVITE
 DESCRIPTOR.message_types_by_name['EventChatMessage'] = _EVENTCHATMESSAGE
 DESCRIPTOR.message_types_by_name['RequestSendMessage'] = _REQUESTSENDMESSAGE
 DESCRIPTOR.message_types_by_name['ResponseSendMessage'] = _RESPONSESENDMESSAGE
+DESCRIPTOR.message_types_by_name['RequestChatHistory'] = _REQUESTCHATHISTORY
+DESCRIPTOR.message_types_by_name['ResponseChatHistory'] = _RESPONSECHATHISTORY
 
 class ChatLobbyInfo(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
@@ -956,5 +1042,17 @@ class ResponseSendMessage(message.Message):
   DESCRIPTOR = _RESPONSESENDMESSAGE
   
   # @@protoc_insertion_point(class_scope:rsctrl.chat.ResponseSendMessage)
+
+class RequestChatHistory(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _REQUESTCHATHISTORY
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.chat.RequestChatHistory)
+
+class ResponseChatHistory(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _RESPONSECHATHISTORY
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.chat.ResponseChatHistory)
 
 # @@protoc_insertion_point(module_scope)

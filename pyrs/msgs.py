@@ -81,12 +81,14 @@ class ProtoChat(ProtoHolder):
     self.ReqFns[chat_pb2.MsgId_RequestSetLobbyNickname] = chat_pb2.RequestSetLobbyNickname
     self.ReqFns[chat_pb2.MsgId_RequestRegisterEvents] = chat_pb2.RequestRegisterEvents
     self.ReqFns[chat_pb2.MsgId_RequestSendMessage] = chat_pb2.RequestSendMessage
+    self.ReqFns[chat_pb2.MsgId_RequestChatHistory] = chat_pb2.RequestChatHistory
 
     # dict of Responses.
     self.RespFns[chat_pb2.MsgId_ResponseChatLobbies] = chat_pb2.ResponseChatLobbies
     self.RespFns[chat_pb2.MsgId_ResponseSetLobbyNickname] = chat_pb2.ResponseSetLobbyNickname
     self.RespFns[chat_pb2.MsgId_ResponseRegisterEvents] = chat_pb2.ResponseRegisterEvents
     self.RespFns[chat_pb2.MsgId_ResponseSendMessage] = chat_pb2.ResponseSendMessage
+    self.RespFns[chat_pb2.MsgId_ResponseChatHistory] = chat_pb2.ResponseChatHistory
     self.RespFns[chat_pb2.MsgId_EventLobbyInvite] = chat_pb2.EventLobbyInvite
     self.RespFns[chat_pb2.MsgId_EventChatMessage] = chat_pb2.EventChatMessage
 

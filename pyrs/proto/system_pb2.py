@@ -12,7 +12,7 @@ import core_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='system.proto',
   package='rsctrl.system',
-  serialized_pb='\n\x0csystem.proto\x12\rrsctrl.system\x1a\ncore.proto\"\x15\n\x13RequestSystemStatus\"\xf6\x02\n\x14ResponseSystemStatus\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x10\n\x08no_peers\x18\x02 \x02(\r\x12\x14\n\x0cno_connected\x18\x03 \x02(\r\x12?\n\nnet_status\x18\x04 \x02(\x0e\x32+.rsctrl.system.ResponseSystemStatus.NetCode\x12(\n\x08\x62w_total\x18\x05 \x02(\x0b\x32\x16.rsctrl.core.Bandwidth\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"\x81\x01\n\x11RequestSystemQuit\x12<\n\tquit_code\x18\x01 \x02(\x0e\x32).rsctrl.system.RequestSystemQuit.QuitCode\".\n\x08QuitCode\x12\x11\n\rCLOSE_CHANNEL\x10\x01\x12\x0f\n\x0bSHUTDOWN_RS\x10\x02\"9\n\x12ResponseSystemQuit\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status*K\n\rRequestMsgIds\x12\x1d\n\x19MsgId_RequestSystemStatus\x10\x01\x12\x1b\n\x17MsgId_RequestSystemQuit\x10\x02*N\n\x0eResponseMsgIds\x12\x1e\n\x1aMsgId_ResponseSystemStatus\x10\x01\x12\x1c\n\x18MsgId_ResponseSystemQuit\x10\x02')
+  serialized_pb='\n\x0csystem.proto\x12\rrsctrl.system\x1a\ncore.proto\"\x15\n\x13RequestSystemStatus\"\xf6\x02\n\x14ResponseSystemStatus\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x10\n\x08no_peers\x18\x02 \x02(\r\x12\x14\n\x0cno_connected\x18\x03 \x02(\r\x12?\n\nnet_status\x18\x04 \x02(\x0e\x32+.rsctrl.system.ResponseSystemStatus.NetCode\x12(\n\x08\x62w_total\x18\x05 \x02(\x0b\x32\x16.rsctrl.core.Bandwidth\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"\x81\x01\n\x11RequestSystemQuit\x12<\n\tquit_code\x18\x01 \x02(\x0e\x32).rsctrl.system.RequestSystemQuit.QuitCode\".\n\x08QuitCode\x12\x11\n\rCLOSE_CHANNEL\x10\x01\x12\x0f\n\x0bSHUTDOWN_RS\x10\x02\"9\n\x12ResponseSystemQuit\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"\x1d\n\x1bRequestSystemExternalAccess\"f\n\x1cResponseSystemExternalAccess\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x10\n\x08\x65xt_port\x18\x02 \x02(\r\x12\x0f\n\x07\x64ht_key\x18\x03 \x02(\t*r\n\rRequestMsgIds\x12\x1d\n\x19MsgId_RequestSystemStatus\x10\x01\x12\x1b\n\x17MsgId_RequestSystemQuit\x10\x02\x12%\n!MsgId_RequestSystemExternalAccess\x10\x03*v\n\x0eResponseMsgIds\x12\x1e\n\x1aMsgId_ResponseSystemStatus\x10\x01\x12\x1c\n\x18MsgId_ResponseSystemQuit\x10\x02\x12&\n\"MsgId_ResponseSystemExternalAccess\x10\x03')
 
 _REQUESTMSGIDS = descriptor.EnumDescriptor(
   name='RequestMsgIds',
@@ -28,11 +28,15 @@ _REQUESTMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_RequestSystemQuit', index=1, number=2,
       options=None,
       type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_RequestSystemExternalAccess', index=2, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=634,
-  serialized_end=709,
+  serialized_start=769,
+  serialized_end=883,
 )
 
 
@@ -50,18 +54,24 @@ _RESPONSEMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_ResponseSystemQuit', index=1, number=2,
       options=None,
       type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_ResponseSystemExternalAccess', index=2, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=711,
-  serialized_end=789,
+  serialized_start=885,
+  serialized_end=1003,
 )
 
 
 MsgId_RequestSystemStatus = 1
 MsgId_RequestSystemQuit = 2
+MsgId_RequestSystemExternalAccess = 3
 MsgId_ResponseSystemStatus = 1
 MsgId_ResponseSystemQuit = 2
+MsgId_ResponseSystemExternalAccess = 3
 
 
 _RESPONSESYSTEMSTATUS_NETCODE = descriptor.EnumDescriptor(
@@ -269,6 +279,69 @@ _RESPONSESYSTEMQUIT = descriptor.Descriptor(
   serialized_end=632,
 )
 
+
+_REQUESTSYSTEMEXTERNALACCESS = descriptor.Descriptor(
+  name='RequestSystemExternalAccess',
+  full_name='rsctrl.system.RequestSystemExternalAccess',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=634,
+  serialized_end=663,
+)
+
+
+_RESPONSESYSTEMEXTERNALACCESS = descriptor.Descriptor(
+  name='ResponseSystemExternalAccess',
+  full_name='rsctrl.system.ResponseSystemExternalAccess',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='status', full_name='rsctrl.system.ResponseSystemExternalAccess.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='ext_port', full_name='rsctrl.system.ResponseSystemExternalAccess.ext_port', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='dht_key', full_name='rsctrl.system.ResponseSystemExternalAccess.dht_key', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=665,
+  serialized_end=767,
+)
+
 _RESPONSESYSTEMSTATUS.fields_by_name['status'].message_type = core_pb2._STATUS
 _RESPONSESYSTEMSTATUS.fields_by_name['net_status'].enum_type = _RESPONSESYSTEMSTATUS_NETCODE
 _RESPONSESYSTEMSTATUS.fields_by_name['bw_total'].message_type = core_pb2._BANDWIDTH
@@ -276,10 +349,13 @@ _RESPONSESYSTEMSTATUS_NETCODE.containing_type = _RESPONSESYSTEMSTATUS;
 _REQUESTSYSTEMQUIT.fields_by_name['quit_code'].enum_type = _REQUESTSYSTEMQUIT_QUITCODE
 _REQUESTSYSTEMQUIT_QUITCODE.containing_type = _REQUESTSYSTEMQUIT;
 _RESPONSESYSTEMQUIT.fields_by_name['status'].message_type = core_pb2._STATUS
+_RESPONSESYSTEMEXTERNALACCESS.fields_by_name['status'].message_type = core_pb2._STATUS
 DESCRIPTOR.message_types_by_name['RequestSystemStatus'] = _REQUESTSYSTEMSTATUS
 DESCRIPTOR.message_types_by_name['ResponseSystemStatus'] = _RESPONSESYSTEMSTATUS
 DESCRIPTOR.message_types_by_name['RequestSystemQuit'] = _REQUESTSYSTEMQUIT
 DESCRIPTOR.message_types_by_name['ResponseSystemQuit'] = _RESPONSESYSTEMQUIT
+DESCRIPTOR.message_types_by_name['RequestSystemExternalAccess'] = _REQUESTSYSTEMEXTERNALACCESS
+DESCRIPTOR.message_types_by_name['ResponseSystemExternalAccess'] = _RESPONSESYSTEMEXTERNALACCESS
 
 class RequestSystemStatus(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
@@ -304,5 +380,17 @@ class ResponseSystemQuit(message.Message):
   DESCRIPTOR = _RESPONSESYSTEMQUIT
   
   # @@protoc_insertion_point(class_scope:rsctrl.system.ResponseSystemQuit)
+
+class RequestSystemExternalAccess(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _REQUESTSYSTEMEXTERNALACCESS
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.system.RequestSystemExternalAccess)
+
+class ResponseSystemExternalAccess(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _RESPONSESYSTEMEXTERNALACCESS
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.system.ResponseSystemExternalAccess)
 
 # @@protoc_insertion_point(module_scope)

@@ -19,6 +19,15 @@ class SSHcomms:
     self.channel = self.transport.open_channel('session')
     self.channel.invoke_shell()
 
+
+  # so we don't have to re-create the SSHcomms.
+  def connect_params(self, user, pwd, host, port):
+    self.username = user
+    self.password = pwd
+    self.host = host
+    self.port = port
+    self.connect()
+
   def recv_ready(self):
     return self.channel.recv_ready();
 
