@@ -12,7 +12,7 @@ import core_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='files.proto',
   package='rsctrl.files',
-  serialized_pb='\n\x0b\x66iles.proto\x12\x0crsctrl.files\x1a\ncore.proto\"\x7f\n\x0c\x46ileTransfer\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12*\n\tdirection\x18\x02 \x02(\x0e\x32\x17.rsctrl.files.Direction\x12\x10\n\x08\x66raction\x18\x03 \x02(\x02\x12\x10\n\x08rate_kBs\x18\x04 \x02(\x02\"A\n\x13RequestTransferList\x12*\n\tdirection\x18\x01 \x02(\x0e\x32\x17.rsctrl.files.Direction\"j\n\x14ResponseTransferList\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12-\n\ttransfers\x18\x02 \x03(\x0b\x32\x1a.rsctrl.files.FileTransfer\"\x84\x02\n\x16RequestControlDownload\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12;\n\x06\x61\x63tion\x18\x02 \x02(\x0e\x32+.rsctrl.files.RequestControlDownload.Action\"\x8b\x01\n\x06\x41\x63tion\x12\x10\n\x0c\x41\x43TION_START\x10\x01\x12\x13\n\x0f\x41\x43TION_CONTINUE\x10\x02\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x03\x12\x10\n\x0c\x41\x43TION_PAUSE\x10\x04\x12\x12\n\x0e\x41\x43TION_RESTART\x10\x05\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x06\x12\x11\n\rACTION_CANCEL\x10\x07\">\n\x17ResponseControlDownload\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status*P\n\rRequestMsgIds\x12\x1d\n\x19MsgId_RequestTransferList\x10\x01\x12 \n\x1cMsgId_RequestControlDownload\x10\x02*S\n\x0eResponseMsgIds\x12\x1e\n\x1aMsgId_ResponseTransferList\x10\x01\x12!\n\x1dMsgId_ResponseControlDownload\x10\x02*9\n\tDirection\x12\x14\n\x10\x44IRECTION_UPLOAD\x10\x01\x12\x16\n\x12\x44IRECTION_DOWNLOAD\x10\x02')
+  serialized_pb='\n\x0b\x66iles.proto\x12\x0crsctrl.files\x1a\ncore.proto\"\x7f\n\x0c\x46ileTransfer\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12*\n\tdirection\x18\x02 \x02(\x0e\x32\x17.rsctrl.files.Direction\x12\x10\n\x08\x66raction\x18\x03 \x02(\x02\x12\x10\n\x08rate_kBs\x18\x04 \x02(\x02\"A\n\x13RequestTransferList\x12*\n\tdirection\x18\x01 \x02(\x0e\x32\x17.rsctrl.files.Direction\"j\n\x14ResponseTransferList\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12-\n\ttransfers\x18\x02 \x03(\x0b\x32\x1a.rsctrl.files.FileTransfer\"\x84\x02\n\x16RequestControlDownload\x12\x1f\n\x04\x66ile\x18\x01 \x02(\x0b\x32\x11.rsctrl.core.File\x12;\n\x06\x61\x63tion\x18\x02 \x02(\x0e\x32+.rsctrl.files.RequestControlDownload.Action\"\x8b\x01\n\x06\x41\x63tion\x12\x10\n\x0c\x41\x43TION_START\x10\x01\x12\x13\n\x0f\x41\x43TION_CONTINUE\x10\x02\x12\x0f\n\x0b\x41\x43TION_WAIT\x10\x03\x12\x10\n\x0c\x41\x43TION_PAUSE\x10\x04\x12\x12\n\x0e\x41\x43TION_RESTART\x10\x05\x12\x10\n\x0c\x41\x43TION_CHECK\x10\x06\x12\x11\n\rACTION_CANCEL\x10\x07\">\n\x17ResponseControlDownload\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\"3\n\x13RequestShareDirList\x12\x0e\n\x06ssl_id\x18\x01 \x02(\t\x12\x0c\n\x04path\x18\x02 \x02(\t\"\x94\x02\n\x14ResponseShareDirList\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\x0e\n\x06ssl_id\x18\x02 \x02(\t\x12\x0c\n\x04path\x18\x03 \x02(\t\x12>\n\tlist_type\x18\x04 \x02(\x0e\x32+.rsctrl.files.ResponseShareDirList.ListType\x12 \n\x05\x66iles\x18\x05 \x03(\x0b\x32\x11.rsctrl.core.File\"W\n\x08ListType\x12\x11\n\rDIRQUERY_ROOT\x10\x01\x12\x13\n\x0f\x44IRQUERY_PERSON\x10\x02\x12\x11\n\rDIRQUERY_FILE\x10\x03\x12\x10\n\x0c\x44IRQUERY_DIR\x10\x04*o\n\rRequestMsgIds\x12\x1d\n\x19MsgId_RequestTransferList\x10\x01\x12 \n\x1cMsgId_RequestControlDownload\x10\x02\x12\x1d\n\x19MsgId_RequestShareDirList\x10\x03*s\n\x0eResponseMsgIds\x12\x1e\n\x1aMsgId_ResponseTransferList\x10\x01\x12!\n\x1dMsgId_ResponseControlDownload\x10\x02\x12\x1e\n\x1aMsgId_ResponseShareDirList\x10\x03*9\n\tDirection\x12\x14\n\x10\x44IRECTION_UPLOAD\x10\x01\x12\x16\n\x12\x44IRECTION_DOWNLOAD\x10\x02')
 
 _REQUESTMSGIDS = descriptor.EnumDescriptor(
   name='RequestMsgIds',
@@ -28,11 +28,15 @@ _REQUESTMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_RequestControlDownload', index=1, number=2,
       options=None,
       type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_RequestShareDirList', index=2, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=672,
-  serialized_end=752,
+  serialized_start=1004,
+  serialized_end=1115,
 )
 
 
@@ -50,11 +54,15 @@ _RESPONSEMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_ResponseControlDownload', index=1, number=2,
       options=None,
       type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_ResponseShareDirList', index=2, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=754,
-  serialized_end=837,
+  serialized_start=1117,
+  serialized_end=1232,
 )
 
 
@@ -75,15 +83,17 @@ _DIRECTION = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=839,
-  serialized_end=896,
+  serialized_start=1234,
+  serialized_end=1291,
 )
 
 
 MsgId_RequestTransferList = 1
 MsgId_RequestControlDownload = 2
+MsgId_RequestShareDirList = 3
 MsgId_ResponseTransferList = 1
 MsgId_ResponseControlDownload = 2
+MsgId_ResponseShareDirList = 3
 DIRECTION_UPLOAD = 1
 DIRECTION_DOWNLOAD = 2
 
@@ -127,6 +137,35 @@ _REQUESTCONTROLDOWNLOAD_ACTION = descriptor.EnumDescriptor(
   options=None,
   serialized_start=467,
   serialized_end=606,
+)
+
+_RESPONSESHAREDIRLIST_LISTTYPE = descriptor.EnumDescriptor(
+  name='ListType',
+  full_name='rsctrl.files.ResponseShareDirList.ListType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    descriptor.EnumValueDescriptor(
+      name='DIRQUERY_ROOT', index=0, number=1,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='DIRQUERY_PERSON', index=1, number=2,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='DIRQUERY_FILE', index=2, number=3,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='DIRQUERY_DIR', index=3, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=915,
+  serialized_end=1002,
 )
 
 
@@ -305,6 +344,98 @@ _RESPONSECONTROLDOWNLOAD = descriptor.Descriptor(
   serialized_end=670,
 )
 
+
+_REQUESTSHAREDIRLIST = descriptor.Descriptor(
+  name='RequestShareDirList',
+  full_name='rsctrl.files.RequestShareDirList',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='ssl_id', full_name='rsctrl.files.RequestShareDirList.ssl_id', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='path', full_name='rsctrl.files.RequestShareDirList.path', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=672,
+  serialized_end=723,
+)
+
+
+_RESPONSESHAREDIRLIST = descriptor.Descriptor(
+  name='ResponseShareDirList',
+  full_name='rsctrl.files.ResponseShareDirList',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='status', full_name='rsctrl.files.ResponseShareDirList.status', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='ssl_id', full_name='rsctrl.files.ResponseShareDirList.ssl_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='path', full_name='rsctrl.files.ResponseShareDirList.path', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='list_type', full_name='rsctrl.files.ResponseShareDirList.list_type', index=3,
+      number=4, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='files', full_name='rsctrl.files.ResponseShareDirList.files', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _RESPONSESHAREDIRLIST_LISTTYPE,
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=726,
+  serialized_end=1002,
+)
+
 _FILETRANSFER.fields_by_name['file'].message_type = core_pb2._FILE
 _FILETRANSFER.fields_by_name['direction'].enum_type = _DIRECTION
 _REQUESTTRANSFERLIST.fields_by_name['direction'].enum_type = _DIRECTION
@@ -314,11 +445,17 @@ _REQUESTCONTROLDOWNLOAD.fields_by_name['file'].message_type = core_pb2._FILE
 _REQUESTCONTROLDOWNLOAD.fields_by_name['action'].enum_type = _REQUESTCONTROLDOWNLOAD_ACTION
 _REQUESTCONTROLDOWNLOAD_ACTION.containing_type = _REQUESTCONTROLDOWNLOAD;
 _RESPONSECONTROLDOWNLOAD.fields_by_name['status'].message_type = core_pb2._STATUS
+_RESPONSESHAREDIRLIST.fields_by_name['status'].message_type = core_pb2._STATUS
+_RESPONSESHAREDIRLIST.fields_by_name['list_type'].enum_type = _RESPONSESHAREDIRLIST_LISTTYPE
+_RESPONSESHAREDIRLIST.fields_by_name['files'].message_type = core_pb2._FILE
+_RESPONSESHAREDIRLIST_LISTTYPE.containing_type = _RESPONSESHAREDIRLIST;
 DESCRIPTOR.message_types_by_name['FileTransfer'] = _FILETRANSFER
 DESCRIPTOR.message_types_by_name['RequestTransferList'] = _REQUESTTRANSFERLIST
 DESCRIPTOR.message_types_by_name['ResponseTransferList'] = _RESPONSETRANSFERLIST
 DESCRIPTOR.message_types_by_name['RequestControlDownload'] = _REQUESTCONTROLDOWNLOAD
 DESCRIPTOR.message_types_by_name['ResponseControlDownload'] = _RESPONSECONTROLDOWNLOAD
+DESCRIPTOR.message_types_by_name['RequestShareDirList'] = _REQUESTSHAREDIRLIST
+DESCRIPTOR.message_types_by_name['ResponseShareDirList'] = _RESPONSESHAREDIRLIST
 
 class FileTransfer(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
@@ -349,5 +486,17 @@ class ResponseControlDownload(message.Message):
   DESCRIPTOR = _RESPONSECONTROLDOWNLOAD
   
   # @@protoc_insertion_point(class_scope:rsctrl.files.ResponseControlDownload)
+
+class RequestShareDirList(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _REQUESTSHAREDIRLIST
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.files.RequestShareDirList)
+
+class ResponseShareDirList(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _RESPONSESHAREDIRLIST
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.files.ResponseShareDirList)
 
 # @@protoc_insertion_point(module_scope)

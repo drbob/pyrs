@@ -12,7 +12,7 @@ import core_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='peers.proto',
   package='rsctrl.peers',
-  serialized_pb='\n\x0bpeers.proto\x12\x0crsctrl.peers\x1a\ncore.proto\"\xa9\x02\n\x0cRequestPeers\x12\x31\n\x03set\x18\x01 \x02(\x0e\x32$.rsctrl.peers.RequestPeers.SetOption\x12\x33\n\x04info\x18\x02 \x02(\x0e\x32%.rsctrl.peers.RequestPeers.InfoOption\x12\x0f\n\x07gpg_ids\x18\x03 \x03(\t\"^\n\tSetOption\x12\t\n\x05OWNID\x10\x01\x12\n\n\x06LISTED\x10\x02\x12\r\n\tCONNECTED\x10\x03\x12\x0b\n\x07\x46RIENDS\x10\x04\x12\t\n\x05VALID\x10\x05\x12\n\n\x06SIGNED\x10\x06\x12\x07\n\x03\x41LL\x10\x07\"@\n\nInfoOption\x12\x0c\n\x08NAMEONLY\x10\x01\x12\t\n\x05\x42\x41SIC\x10\x02\x12\x0c\n\x08LOCATION\x10\x03\x12\x0b\n\x07\x41LLINFO\x10\x04\"[\n\x10ResponsePeerList\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person\"\xa2\x01\n\x0eRequestAddPeer\x12\x0e\n\x06gpg_id\x18\x01 \x02(\t\x12\x30\n\x03\x63md\x18\x02 \x02(\x0e\x32#.rsctrl.peers.RequestAddPeer.AddCmd\x12\x0c\n\x04\x63\x65rt\x18\x03 \x01(\t\"@\n\x06\x41\x64\x64\x43md\x12\x08\n\x04NOOP\x10\x00\x12\x07\n\x03\x41\x44\x44\x10\x01\x12\n\n\x06REMOVE\x10\x02\x12\n\n\x06IMPORT\x10\x03\x12\x0b\n\x07\x45XAMINE\x10\x04\"Z\n\x0fResponseAddPeer\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person\"\x99\x01\n\x11RequestModifyPeer\x12\x33\n\x03\x63md\x18\x01 \x02(\x0e\x32&.rsctrl.peers.RequestModifyPeer.ModCmd\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person\"+\n\x06ModCmd\x12\x08\n\x04NOOP\x10\x00\x12\x0b\n\x07\x41\x44\x44RESS\x10\x01\x12\n\n\x06\x44YNDNS\x10\x02\"]\n\x12ResponseModifyPeer\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person*^\n\rRequestMsgIds\x12\x16\n\x12MsgId_RequestPeers\x10\x01\x12\x18\n\x14MsgId_RequestAddPeer\x10\x02\x12\x1b\n\x17MsgId_RequestModifyPeer\x10\x03*e\n\x0eResponseMsgIds\x12\x1a\n\x16MsgId_ResponsePeerList\x10\x01\x12\x19\n\x15MsgId_ResponseAddPeer\x10\x02\x12\x1c\n\x18MsgId_ResponseModifyPeer\x10\x03')
+  serialized_pb='\n\x0bpeers.proto\x12\x0crsctrl.peers\x1a\ncore.proto\"\xa9\x02\n\x0cRequestPeers\x12\x31\n\x03set\x18\x01 \x02(\x0e\x32$.rsctrl.peers.RequestPeers.SetOption\x12\x33\n\x04info\x18\x02 \x02(\x0e\x32%.rsctrl.peers.RequestPeers.InfoOption\x12\x0f\n\x07pgp_ids\x18\x03 \x03(\t\"^\n\tSetOption\x12\t\n\x05OWNID\x10\x01\x12\n\n\x06LISTED\x10\x02\x12\r\n\tCONNECTED\x10\x03\x12\x0b\n\x07\x46RIENDS\x10\x04\x12\t\n\x05VALID\x10\x05\x12\n\n\x06SIGNED\x10\x06\x12\x07\n\x03\x41LL\x10\x07\"@\n\nInfoOption\x12\x0c\n\x08NAMEONLY\x10\x01\x12\t\n\x05\x42\x41SIC\x10\x02\x12\x0c\n\x08LOCATION\x10\x03\x12\x0b\n\x07\x41LLINFO\x10\x04\"[\n\x10ResponsePeerList\x12#\n\x06status\x18\x01 \x02(\x0b\x32\x13.rsctrl.core.Status\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person\"\x81\x01\n\x0eRequestAddPeer\x12\x30\n\x03\x63md\x18\x01 \x02(\x0e\x32#.rsctrl.peers.RequestAddPeer.AddCmd\x12\x0e\n\x06pgp_id\x18\x02 \x02(\t\x12\x0e\n\x06ssl_id\x18\x03 \x01(\t\"\x1d\n\x06\x41\x64\x64\x43md\x12\x07\n\x03\x41\x44\x44\x10\x01\x12\n\n\x06REMOVE\x10\x02\"\x93\x01\n\x12RequestExaminePeer\x12\x0e\n\x06pgp_id\x18\x01 \x02(\t\x12\x38\n\x03\x63md\x18\x02 \x02(\x0e\x32+.rsctrl.peers.RequestExaminePeer.ExamineCmd\x12\x0c\n\x04\x63\x65rt\x18\x03 \x02(\t\"%\n\nExamineCmd\x12\n\n\x06IMPORT\x10\x03\x12\x0b\n\x07\x45XAMINE\x10\x04\"\x99\x01\n\x11RequestModifyPeer\x12\x33\n\x03\x63md\x18\x01 \x02(\x0e\x32&.rsctrl.peers.RequestModifyPeer.ModCmd\x12\"\n\x05peers\x18\x02 \x03(\x0b\x32\x13.rsctrl.core.Person\"+\n\x06ModCmd\x12\x08\n\x04NOOP\x10\x00\x12\x0b\n\x07\x41\x44\x44RESS\x10\x01\x12\n\n\x06\x44YNDNS\x10\x02*|\n\rRequestMsgIds\x12\x16\n\x12MsgId_RequestPeers\x10\x01\x12\x18\n\x14MsgId_RequestAddPeer\x10\x02\x12\x1c\n\x18MsgId_RequestExaminePeer\x10\x03\x12\x1b\n\x17MsgId_RequestModifyPeer\x10\x04*,\n\x0eResponseMsgIds\x12\x1a\n\x16MsgId_ResponsePeerList\x10\x01')
 
 _REQUESTMSGIDS = descriptor.EnumDescriptor(
   name='RequestMsgIds',
@@ -29,14 +29,18 @@ _REQUESTMSGIDS = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='MsgId_RequestModifyPeer', index=2, number=3,
+      name='MsgId_RequestExaminePeer', index=2, number=3,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='MsgId_RequestModifyPeer', index=3, number=4,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=942,
-  serialized_end=1036,
+  serialized_start=872,
+  serialized_end=996,
 )
 
 
@@ -50,28 +54,19 @@ _RESPONSEMSGIDS = descriptor.EnumDescriptor(
       name='MsgId_ResponsePeerList', index=0, number=1,
       options=None,
       type=None),
-    descriptor.EnumValueDescriptor(
-      name='MsgId_ResponseAddPeer', index=1, number=2,
-      options=None,
-      type=None),
-    descriptor.EnumValueDescriptor(
-      name='MsgId_ResponseModifyPeer', index=2, number=3,
-      options=None,
-      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1038,
-  serialized_end=1139,
+  serialized_start=998,
+  serialized_end=1042,
 )
 
 
 MsgId_RequestPeers = 1
 MsgId_RequestAddPeer = 2
-MsgId_RequestModifyPeer = 3
+MsgId_RequestExaminePeer = 3
+MsgId_RequestModifyPeer = 4
 MsgId_ResponsePeerList = 1
-MsgId_ResponseAddPeer = 2
-MsgId_ResponseModifyPeer = 3
 
 
 _REQUESTPEERS_SETOPTION = descriptor.EnumDescriptor(
@@ -151,30 +146,39 @@ _REQUESTADDPEER_ADDCMD = descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     descriptor.EnumValueDescriptor(
-      name='NOOP', index=0, number=0,
+      name='ADD', index=0, number=1,
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='ADD', index=1, number=1,
-      options=None,
-      type=None),
-    descriptor.EnumValueDescriptor(
-      name='REMOVE', index=2, number=2,
-      options=None,
-      type=None),
-    descriptor.EnumValueDescriptor(
-      name='IMPORT', index=3, number=3,
-      options=None,
-      type=None),
-    descriptor.EnumValueDescriptor(
-      name='EXAMINE', index=4, number=4,
+      name='REMOVE', index=1, number=2,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=533,
-  serialized_end=597,
+  serialized_start=535,
+  serialized_end=564,
+)
+
+_REQUESTEXAMINEPEER_EXAMINECMD = descriptor.EnumDescriptor(
+  name='ExamineCmd',
+  full_name='rsctrl.peers.RequestExaminePeer.ExamineCmd',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    descriptor.EnumValueDescriptor(
+      name='IMPORT', index=0, number=3,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='EXAMINE', index=1, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=677,
+  serialized_end=714,
 )
 
 _REQUESTMODIFYPEER_MODCMD = descriptor.EnumDescriptor(
@@ -198,8 +202,8 @@ _REQUESTMODIFYPEER_MODCMD = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=802,
-  serialized_end=845,
+  serialized_start=827,
+  serialized_end=870,
 )
 
 
@@ -225,7 +229,7 @@ _REQUESTPEERS = descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
-      name='gpg_ids', full_name='rsctrl.peers.RequestPeers.gpg_ids', index=2,
+      name='pgp_ids', full_name='rsctrl.peers.RequestPeers.pgp_ids', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -290,21 +294,21 @@ _REQUESTADDPEER = descriptor.Descriptor(
   containing_type=None,
   fields=[
     descriptor.FieldDescriptor(
-      name='gpg_id', full_name='rsctrl.peers.RequestAddPeer.gpg_id', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      name='cmd', full_name='rsctrl.peers.RequestAddPeer.cmd', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='pgp_id', full_name='rsctrl.peers.RequestAddPeer.pgp_id', index=1,
+      number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
-      name='cmd', full_name='rsctrl.peers.RequestAddPeer.cmd', index=1,
-      number=2, type=14, cpp_type=8, label=2,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    descriptor.FieldDescriptor(
-      name='cert', full_name='rsctrl.peers.RequestAddPeer.cert', index=2,
+      name='ssl_id', full_name='rsctrl.peers.RequestAddPeer.ssl_id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
@@ -321,28 +325,35 @@ _REQUESTADDPEER = descriptor.Descriptor(
   is_extendable=False,
   extension_ranges=[],
   serialized_start=435,
-  serialized_end=597,
+  serialized_end=564,
 )
 
 
-_RESPONSEADDPEER = descriptor.Descriptor(
-  name='ResponseAddPeer',
-  full_name='rsctrl.peers.ResponseAddPeer',
+_REQUESTEXAMINEPEER = descriptor.Descriptor(
+  name='RequestExaminePeer',
+  full_name='rsctrl.peers.RequestExaminePeer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     descriptor.FieldDescriptor(
-      name='status', full_name='rsctrl.peers.ResponseAddPeer.status', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
+      name='pgp_id', full_name='rsctrl.peers.RequestExaminePeer.pgp_id', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
-      name='peers', full_name='rsctrl.peers.ResponseAddPeer.peers', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='cmd', full_name='rsctrl.peers.RequestExaminePeer.cmd', index=1,
+      number=2, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=3,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='cert', full_name='rsctrl.peers.RequestExaminePeer.cert', index=2,
+      number=3, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=unicode("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -351,12 +362,13 @@ _RESPONSEADDPEER = descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
+    _REQUESTEXAMINEPEER_EXAMINECMD,
   ],
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=599,
-  serialized_end=689,
+  serialized_start=567,
+  serialized_end=714,
 )
 
 
@@ -391,43 +403,8 @@ _REQUESTMODIFYPEER = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=692,
-  serialized_end=845,
-)
-
-
-_RESPONSEMODIFYPEER = descriptor.Descriptor(
-  name='ResponseModifyPeer',
-  full_name='rsctrl.peers.ResponseModifyPeer',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    descriptor.FieldDescriptor(
-      name='status', full_name='rsctrl.peers.ResponseModifyPeer.status', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    descriptor.FieldDescriptor(
-      name='peers', full_name='rsctrl.peers.ResponseModifyPeer.peers', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  serialized_start=847,
-  serialized_end=940,
+  serialized_start=717,
+  serialized_end=870,
 )
 
 _REQUESTPEERS.fields_by_name['set'].enum_type = _REQUESTPEERS_SETOPTION
@@ -438,19 +415,16 @@ _RESPONSEPEERLIST.fields_by_name['status'].message_type = core_pb2._STATUS
 _RESPONSEPEERLIST.fields_by_name['peers'].message_type = core_pb2._PERSON
 _REQUESTADDPEER.fields_by_name['cmd'].enum_type = _REQUESTADDPEER_ADDCMD
 _REQUESTADDPEER_ADDCMD.containing_type = _REQUESTADDPEER;
-_RESPONSEADDPEER.fields_by_name['status'].message_type = core_pb2._STATUS
-_RESPONSEADDPEER.fields_by_name['peers'].message_type = core_pb2._PERSON
+_REQUESTEXAMINEPEER.fields_by_name['cmd'].enum_type = _REQUESTEXAMINEPEER_EXAMINECMD
+_REQUESTEXAMINEPEER_EXAMINECMD.containing_type = _REQUESTEXAMINEPEER;
 _REQUESTMODIFYPEER.fields_by_name['cmd'].enum_type = _REQUESTMODIFYPEER_MODCMD
 _REQUESTMODIFYPEER.fields_by_name['peers'].message_type = core_pb2._PERSON
 _REQUESTMODIFYPEER_MODCMD.containing_type = _REQUESTMODIFYPEER;
-_RESPONSEMODIFYPEER.fields_by_name['status'].message_type = core_pb2._STATUS
-_RESPONSEMODIFYPEER.fields_by_name['peers'].message_type = core_pb2._PERSON
 DESCRIPTOR.message_types_by_name['RequestPeers'] = _REQUESTPEERS
 DESCRIPTOR.message_types_by_name['ResponsePeerList'] = _RESPONSEPEERLIST
 DESCRIPTOR.message_types_by_name['RequestAddPeer'] = _REQUESTADDPEER
-DESCRIPTOR.message_types_by_name['ResponseAddPeer'] = _RESPONSEADDPEER
+DESCRIPTOR.message_types_by_name['RequestExaminePeer'] = _REQUESTEXAMINEPEER
 DESCRIPTOR.message_types_by_name['RequestModifyPeer'] = _REQUESTMODIFYPEER
-DESCRIPTOR.message_types_by_name['ResponseModifyPeer'] = _RESPONSEMODIFYPEER
 
 class RequestPeers(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
@@ -470,22 +444,16 @@ class RequestAddPeer(message.Message):
   
   # @@protoc_insertion_point(class_scope:rsctrl.peers.RequestAddPeer)
 
-class ResponseAddPeer(message.Message):
+class RequestExaminePeer(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
-  DESCRIPTOR = _RESPONSEADDPEER
+  DESCRIPTOR = _REQUESTEXAMINEPEER
   
-  # @@protoc_insertion_point(class_scope:rsctrl.peers.ResponseAddPeer)
+  # @@protoc_insertion_point(class_scope:rsctrl.peers.RequestExaminePeer)
 
 class RequestModifyPeer(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType
   DESCRIPTOR = _REQUESTMODIFYPEER
   
   # @@protoc_insertion_point(class_scope:rsctrl.peers.RequestModifyPeer)
-
-class ResponseModifyPeer(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  DESCRIPTOR = _RESPONSEMODIFYPEER
-  
-  # @@protoc_insertion_point(class_scope:rsctrl.peers.ResponseModifyPeer)
 
 # @@protoc_insertion_point(module_scope)

@@ -11,7 +11,7 @@ from google.protobuf import descriptor_pb2
 DESCRIPTOR = descriptor.FileDescriptor(
   name='core.proto',
   package='rsctrl.core',
-  serialized_pb='\n\ncore.proto\x12\x0brsctrl.core\"\xb0\x01\n\x06Status\x12,\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1e.rsctrl.core.Status.StatusCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"k\n\nStatusCode\x12\n\n\x06\x46\x41ILED\x10\x00\x12\x0f\n\x0bNO_IMPL_YET\x10\x01\x12\x11\n\rINVALID_QUERY\x10\x02\x12\x13\n\x0fPARTIAL_SUCCESS\x10\x03\x12\x0b\n\x07SUCCESS\x10\x04\x12\x0b\n\x07READMSG\x10\x05\")\n\x06IpAddr\x12\x0e\n\x04\x61\x64\x64r\x18\x01 \x02(\t:\x00\x12\x0f\n\x04port\x18\x02 \x02(\r:\x01\x30\"\xc3\x01\n\x08Location\x12\x0e\n\x06ssl_id\x18\x01 \x02(\t\x12\x10\n\x08location\x18\x02 \x02(\t\x12&\n\tlocaladdr\x18\x03 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12$\n\x07\x65xtaddr\x18\x04 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12\r\n\x05state\x18\x05 \x02(\r\"8\n\nStateFlags\x12\n\n\x06ONLINE\x10\x01\x12\r\n\tCONNECTED\x10\x02\x12\x0f\n\x0bUNREACHABLE\x10\x04\"\xee\x01\n\x06Person\x12\x0e\n\x06gpg_id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x32\n\x08relation\x18\x03 \x02(\x0e\x32 .rsctrl.core.Person.Relationship\x12(\n\tlocations\x18\x04 \x03(\x0b\x32\x15.rsctrl.core.Location\"h\n\x0cRelationship\x12\x0c\n\x08YOURSELF\x10\x01\x12\n\n\x06\x46RIEND\x10\x02\x12\x1a\n\x16\x46RIEND_OF_MANY_FRIENDS\x10\x03\x12\x15\n\x11\x46RIEND_OF_FRIENDS\x10\x04\x12\x0b\n\x07UNKNOWN\x10\x05\"0\n\x04\x46ile\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04hash\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x04\"f\n\x03\x44ir\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04path\x18\x02 \x02(\t\x12!\n\x07subdirs\x18\x03 \x03(\x0b\x32\x10.rsctrl.core.Dir\x12 \n\x05\x66iles\x18\x04 \x03(\x0b\x32\x11.rsctrl.core.File\"\xfa\x01\n\x0cSystemStatus\x12\x35\n\nnet_status\x18\x01 \x02(\x0e\x32!.rsctrl.core.SystemStatus.NetCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"3\n\tBandwidth\x12\n\n\x02up\x18\x01 \x02(\x02\x12\x0c\n\x04\x64own\x18\x02 \x02(\x02\x12\x0c\n\x04name\x18\x03 \x01(\t\":\n\x0c\x42\x61ndwidthSet\x12*\n\nbandwidths\x18\x01 \x03(\x0b\x32\x16.rsctrl.core.Bandwidth*\x17\n\x0b\x45xtensionId\x12\x08\n\x04\x43ORE\x10\x00*M\n\tPackageId\x12\t\n\x05PEERS\x10\x01\x12\n\n\x06SYSTEM\x10\x02\x12\x08\n\x04\x43HAT\x10\x03\x12\n\n\x06SEARCH\x10\x04\x12\t\n\x05\x46ILES\x10\x05\x12\x08\n\x03GXS\x10\xe8\x07')
+  serialized_pb='\n\ncore.proto\x12\x0brsctrl.core\"\xb0\x01\n\x06Status\x12,\n\x04\x63ode\x18\x01 \x02(\x0e\x32\x1e.rsctrl.core.Status.StatusCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"k\n\nStatusCode\x12\n\n\x06\x46\x41ILED\x10\x00\x12\x0f\n\x0bNO_IMPL_YET\x10\x01\x12\x11\n\rINVALID_QUERY\x10\x02\x12\x13\n\x0fPARTIAL_SUCCESS\x10\x03\x12\x0b\n\x07SUCCESS\x10\x04\x12\x0b\n\x07READMSG\x10\x05\")\n\x06IpAddr\x12\x0e\n\x04\x61\x64\x64r\x18\x01 \x02(\t:\x00\x12\x0f\n\x04port\x18\x02 \x02(\r:\x01\x30\"\xc3\x01\n\x08Location\x12\x0e\n\x06ssl_id\x18\x01 \x02(\t\x12\x10\n\x08location\x18\x02 \x02(\t\x12&\n\tlocaladdr\x18\x03 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12$\n\x07\x65xtaddr\x18\x04 \x02(\x0b\x32\x13.rsctrl.core.IpAddr\x12\r\n\x05state\x18\x05 \x02(\r\"8\n\nStateFlags\x12\n\n\x06ONLINE\x10\x01\x12\r\n\tCONNECTED\x10\x02\x12\x0f\n\x0bUNREACHABLE\x10\x04\"\xee\x01\n\x06Person\x12\x0e\n\x06gpg_id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x32\n\x08relation\x18\x03 \x02(\x0e\x32 .rsctrl.core.Person.Relationship\x12(\n\tlocations\x18\x04 \x03(\x0b\x32\x15.rsctrl.core.Location\"h\n\x0cRelationship\x12\x0c\n\x08YOURSELF\x10\x01\x12\n\n\x06\x46RIEND\x10\x02\x12\x1a\n\x16\x46RIEND_OF_MANY_FRIENDS\x10\x03\x12\x15\n\x11\x46RIEND_OF_FRIENDS\x10\x04\x12\x0b\n\x07UNKNOWN\x10\x05\"0\n\x04\x46ile\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04hash\x18\x02 \x02(\t\x12\x0c\n\x04size\x18\x03 \x02(\x04\"f\n\x03\x44ir\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x0c\n\x04path\x18\x02 \x02(\t\x12!\n\x07subdirs\x18\x03 \x03(\x0b\x32\x10.rsctrl.core.Dir\x12 \n\x05\x66iles\x18\x04 \x03(\x0b\x32\x11.rsctrl.core.File\",\n\tTimestamp\x12\x0c\n\x04secs\x18\x01 \x02(\x04\x12\x11\n\tmicrosecs\x18\x02 \x02(\r\"\xfa\x01\n\x0cSystemStatus\x12\x35\n\nnet_status\x18\x01 \x02(\x0e\x32!.rsctrl.core.SystemStatus.NetCode\x12\x0b\n\x03msg\x18\x02 \x01(\t\"\xa5\x01\n\x07NetCode\x12\x0f\n\x0b\x42\x41\x44_UNKNOWN\x10\x00\x12\x0f\n\x0b\x42\x41\x44_OFFLINE\x10\x01\x12\x0e\n\nBAD_NATSYM\x10\x02\x12\x11\n\rBAD_NODHT_NAT\x10\x03\x12\x13\n\x0fWARNING_RESTART\x10\x04\x12\x12\n\x0eWARNING_NATTED\x10\x05\x12\x11\n\rWARNING_NODHT\x10\x06\x12\x08\n\x04GOOD\x10\x07\x12\x0f\n\x0b\x41\x44V_FORWARD\x10\x08\"3\n\tBandwidth\x12\n\n\x02up\x18\x01 \x02(\x02\x12\x0c\n\x04\x64own\x18\x02 \x02(\x02\x12\x0c\n\x04name\x18\x03 \x01(\t\":\n\x0c\x42\x61ndwidthSet\x12*\n\nbandwidths\x18\x01 \x03(\x0b\x32\x16.rsctrl.core.Bandwidth*\x17\n\x0b\x45xtensionId\x12\x08\n\x04\x43ORE\x10\x00*Y\n\tPackageId\x12\t\n\x05PEERS\x10\x01\x12\n\n\x06SYSTEM\x10\x02\x12\x08\n\x04\x43HAT\x10\x03\x12\n\n\x06SEARCH\x10\x04\x12\t\n\x05\x46ILES\x10\x05\x12\n\n\x06STREAM\x10\x06\x12\x08\n\x03GXS\x10\xe8\x07')
 
 _EXTENSIONID = descriptor.EnumDescriptor(
   name='ExtensionId',
@@ -26,8 +26,8 @@ _EXTENSIONID = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1208,
-  serialized_end=1231,
+  serialized_start=1254,
+  serialized_end=1277,
 )
 
 
@@ -58,14 +58,18 @@ _PACKAGEID = descriptor.EnumDescriptor(
       options=None,
       type=None),
     descriptor.EnumValueDescriptor(
-      name='GXS', index=5, number=1000,
+      name='STREAM', index=5, number=6,
+      options=None,
+      type=None),
+    descriptor.EnumValueDescriptor(
+      name='GXS', index=6, number=1000,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1233,
-  serialized_end=1310,
+  serialized_start=1279,
+  serialized_end=1368,
 )
 
 
@@ -75,6 +79,7 @@ SYSTEM = 2
 CHAT = 3
 SEARCH = 4
 FILES = 5
+STREAM = 6
 GXS = 1000
 
 
@@ -218,8 +223,8 @@ _SYSTEMSTATUS_NETCODE = descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=928,
-  serialized_end=1093,
+  serialized_start=974,
+  serialized_end=1139,
 )
 
 
@@ -492,6 +497,41 @@ _DIR = descriptor.Descriptor(
 )
 
 
+_TIMESTAMP = descriptor.Descriptor(
+  name='Timestamp',
+  full_name='rsctrl.core.Timestamp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    descriptor.FieldDescriptor(
+      name='secs', full_name='rsctrl.core.Timestamp.secs', index=0,
+      number=1, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    descriptor.FieldDescriptor(
+      name='microsecs', full_name='rsctrl.core.Timestamp.microsecs', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  serialized_start=842,
+  serialized_end=886,
+)
+
+
 _SYSTEMSTATUS = descriptor.Descriptor(
   name='SystemStatus',
   full_name='rsctrl.core.SystemStatus',
@@ -523,8 +563,8 @@ _SYSTEMSTATUS = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=843,
-  serialized_end=1093,
+  serialized_start=889,
+  serialized_end=1139,
 )
 
 
@@ -565,8 +605,8 @@ _BANDWIDTH = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1095,
-  serialized_end=1146,
+  serialized_start=1141,
+  serialized_end=1192,
 )
 
 
@@ -593,8 +633,8 @@ _BANDWIDTHSET = descriptor.Descriptor(
   options=None,
   is_extendable=False,
   extension_ranges=[],
-  serialized_start=1148,
-  serialized_end=1206,
+  serialized_start=1194,
+  serialized_end=1252,
 )
 
 _STATUS.fields_by_name['code'].enum_type = _STATUS_STATUSCODE
@@ -616,6 +656,7 @@ DESCRIPTOR.message_types_by_name['Location'] = _LOCATION
 DESCRIPTOR.message_types_by_name['Person'] = _PERSON
 DESCRIPTOR.message_types_by_name['File'] = _FILE
 DESCRIPTOR.message_types_by_name['Dir'] = _DIR
+DESCRIPTOR.message_types_by_name['Timestamp'] = _TIMESTAMP
 DESCRIPTOR.message_types_by_name['SystemStatus'] = _SYSTEMSTATUS
 DESCRIPTOR.message_types_by_name['Bandwidth'] = _BANDWIDTH
 DESCRIPTOR.message_types_by_name['BandwidthSet'] = _BANDWIDTHSET
@@ -655,6 +696,12 @@ class Dir(message.Message):
   DESCRIPTOR = _DIR
   
   # @@protoc_insertion_point(class_scope:rsctrl.core.Dir)
+
+class Timestamp(message.Message):
+  __metaclass__ = reflection.GeneratedProtocolMessageType
+  DESCRIPTOR = _TIMESTAMP
+  
+  # @@protoc_insertion_point(class_scope:rsctrl.core.Timestamp)
 
 class SystemStatus(message.Message):
   __metaclass__ = reflection.GeneratedProtocolMessageType

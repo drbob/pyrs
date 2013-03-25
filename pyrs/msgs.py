@@ -7,6 +7,7 @@ from proto import system_pb2
 from proto import chat_pb2
 from proto import search_pb2
 from proto import files_pb2
+from proto import stream_pb2
 
 class ProtoHolder(object):
   def __init__(self):
@@ -49,12 +50,12 @@ class ProtoPeers(ProtoHolder):
     # dict of Requests.
     self.ReqFns[peers_pb2.MsgId_RequestPeers] = peers_pb2.RequestPeers
     self.ReqFns[peers_pb2.MsgId_RequestAddPeer] = peers_pb2.RequestAddPeer
-    self.ReqFns[peers_pb2.MsgId_RequestModifyPeer] = peers_pb2.RequestModifyPeer
+    # These are not complete yet.
+    #self.ReqFns[peers_pb2.MsgId_RequestExaminePeer] = peers_pb2.RequestExaminePeer
+    #self.ReqFns[peers_pb2.MsgId_RequestModifyPeer] = peers_pb2.RequestModifyPeer
 
     # dict of Responses.
     self.RespFns[peers_pb2.MsgId_ResponsePeerList] = peers_pb2.ResponsePeerList
-    self.RespFns[peers_pb2.MsgId_ResponseAddPeer] = peers_pb2.ResponseAddPeer
-    self.RespFns[peers_pb2.MsgId_ResponseModifyPeer] = peers_pb2.ResponseModifyPeer
 
 class ProtoSystem(ProtoHolder):
   def __init__(self):
@@ -64,10 +65,14 @@ class ProtoSystem(ProtoHolder):
     # dict of Requests.
     self.ReqFns[system_pb2.MsgId_RequestSystemStatus] = system_pb2.RequestSystemStatus
     self.ReqFns[system_pb2.MsgId_RequestSystemQuit] = system_pb2.RequestSystemQuit
+    self.ReqFns[system_pb2.MsgId_RequestSystemExternalAccess] = system_pb2.RequestSystemExternalAccess
+    self.ReqFns[system_pb2.MsgId_RequestSystemAccount] = system_pb2.RequestSystemAccount
 
     # dict of Responses.
     self.RespFns[system_pb2.MsgId_ResponseSystemStatus] = system_pb2.ResponseSystemStatus
     self.RespFns[system_pb2.MsgId_ResponseSystemQuit] = system_pb2.ResponseSystemQuit
+    self.RespFns[system_pb2.MsgId_ResponseSystemExternalAccess] = system_pb2.ResponseSystemExternalAccess
+    self.RespFns[system_pb2.MsgId_ResponseSystemAccount] = system_pb2.ResponseSystemAccount
 
 class ProtoChat(ProtoHolder):
   def __init__(self):
@@ -92,6 +97,7 @@ class ProtoChat(ProtoHolder):
     self.RespFns[chat_pb2.MsgId_EventLobbyInvite] = chat_pb2.EventLobbyInvite
     self.RespFns[chat_pb2.MsgId_EventChatMessage] = chat_pb2.EventChatMessage
 
+
 class ProtoSearch(ProtoHolder):
   def __init__(self):
     # init parent.
@@ -108,6 +114,7 @@ class ProtoSearch(ProtoHolder):
     self.RespFns[search_pb2.MsgId_ResponseSearchIds] = search_pb2.ResponseSearchIds
     self.RespFns[search_pb2.MsgId_ResponseSearchResults] = search_pb2.ResponseSearchResults
 
+
 class ProtoFiles(ProtoHolder):
   def __init__(self):
     # init parent.
@@ -116,10 +123,27 @@ class ProtoFiles(ProtoHolder):
     # dict of Requests.
     self.ReqFns[files_pb2.MsgId_RequestTransferList] = files_pb2.RequestTransferList
     self.ReqFns[files_pb2.MsgId_RequestControlDownload] = files_pb2.RequestControlDownload
+    self.ReqFns[files_pb2.MsgId_RequestShareDirList] = files_pb2.RequestShareDirList
 
     # dict of Responses.
     self.RespFns[files_pb2.MsgId_ResponseTransferList] = files_pb2.ResponseTransferList
     self.RespFns[files_pb2.MsgId_ResponseControlDownload] = files_pb2.ResponseControlDownload
+    self.RespFns[files_pb2.MsgId_ResponseShareDirList] = files_pb2.ResponseShareDirList
+
+
+class ProtoStream(ProtoHolder):
+  def __init__(self):
+    # init parent.
+    ProtoHolder.__init__(self);
+
+    # dict of Requests.
+    self.ReqFns[stream_pb2.MsgId_RequestStartFileStream] = stream_pb2.RequestStartFileStream
+    self.ReqFns[stream_pb2.MsgId_RequestControlStream] = stream_pb2.RequestControlStream
+    self.ReqFns[stream_pb2.MsgId_RequestListStreams] = stream_pb2.RequestListStreams
+
+    # dict of Responses.
+    self.RespFns[stream_pb2.MsgId_ResponseStreamDetail] = stream_pb2.ResponseStreamDetail
+    self.RespFns[stream_pb2.MsgId_ResponseStreamData] = stream_pb2.ResponseStreamData
 
 
 #############################################################################################
@@ -135,6 +159,7 @@ class RpcMsgs(object):
     self.ProtoDict[core_pb2.CHAT] = ProtoChat();
     self.ProtoDict[core_pb2.SEARCH] = ProtoSearch();
     self.ProtoDict[core_pb2.FILES] = ProtoFiles();
+    self.ProtoDict[core_pb2.STREAM] = ProtoStream();
     
   def construct(self, msg_id, data):
     # split the msg_id into bits.
